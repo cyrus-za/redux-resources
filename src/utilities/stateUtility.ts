@@ -1,32 +1,4 @@
-interface PaginatedResponse {
-	total: number
-	per_page: number
-	current_page: number
-	last_page: number
-	from: number
-	to: number
-	data: unknown
-}
-
-interface Meta {
-	total: number
-	per_page: number
-	current_page: number
-	last_page: number
-	from: number
-	to: number
-}
-
-interface GenericObject {
-	id: string
-}
-
-interface Pagination {
-	meta: Meta
-	data: GenericObject[]
-}
-
-const getPaginationFromLocalStorage = (name: string) => {
+const getPaginationFromLocalStorage = (name) => {
 	const value = window.localStorage.getItem(name)
 	if (value === null) {
 		return getPaginationInitialState()
@@ -64,7 +36,7 @@ const getPaginationLoading = () => {
 	}
 }
 
-const getPaginationFulfilled = (data: PaginatedResponse) => {
+const getPaginationFulfilled = (data) => {
 	return {
 		ui: {
 			loaded: true,
@@ -83,7 +55,7 @@ const getPaginationFulfilled = (data: PaginatedResponse) => {
 	}
 }
 
-const addItemToPagination = (list: Pagination, data: any, prepend = true) => {
+const addItemToPagination = (list, data, prepend = true) => {
 	return {
 		ui: {
 			loaded: true,
@@ -102,7 +74,7 @@ const addItemToPagination = (list: Pagination, data: any, prepend = true) => {
 	}
 }
 
-const removeItemFromPagination = (list: Pagination, resourceId: string) => {
+const removeItemFromPagination = (list, resourceId) => {
 	return {
 		ui: {
 			loaded: true,
@@ -121,7 +93,7 @@ const removeItemFromPagination = (list: Pagination, resourceId: string) => {
 	}
 }
 
-const getPaginationRejected = (error: Object) => {
+const getPaginationRejected = (error) => {
 	return {
 		ui: {
 			loaded: false,
@@ -135,7 +107,7 @@ const getPaginationRejected = (error: Object) => {
 	}
 }
 
-const getStringFromLocalStorage = (name: string) => {
+const getStringFromLocalStorage = (name) => {
 	const value = window.localStorage.getItem(name)
 	if (value === null) {
 		return getItemInitialState()
@@ -144,7 +116,7 @@ const getStringFromLocalStorage = (name: string) => {
 	}
 }
 
-const getItemFromLocalStorage = (name: string) => {
+const getItemFromLocalStorage = (name) => {
 	const value = window.localStorage.getItem(name)
 	if (value === null) {
 		return getItemInitialState()
@@ -186,7 +158,7 @@ const getItemFulfilled = (data = {}) => {
 	}
 }
 
-const getItemRejected = (error: Object, data = null) => {
+const getItemRejected = (error, data = null) => {
 	return {
 		ui: {
 			loaded: true,
@@ -227,7 +199,7 @@ const getObserverFulfilled = () => {
 	}
 }
 
-const getObserverRejected = (error: Object) => {
+const getObserverRejected = (error) => {
 	return {
 		ui: {
 			loaded: true,
