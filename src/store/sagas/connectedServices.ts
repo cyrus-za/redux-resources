@@ -1,9 +1,8 @@
 import { connectedServiceActions, notificationActions } from '../actions'
 import { put, takeEvery, call } from 'redux-saga/effects'
 import { connectedServiceApi } from '../../api'
-import { AnyAction } from 'redux'
 
-function* getConnectedServices({ query = {} }: AnyAction) {
+function* getConnectedServices({ query = {} }) {
 	try {
 		yield put(connectedServiceActions.setConnectedServicesLoading())
 		const getConnectedServicesResponse = yield call(connectedServiceApi.getConnectedServices, query)
@@ -22,7 +21,7 @@ function* getConnectedServices({ query = {} }: AnyAction) {
 	}
 }
 
-function* createConnectedService({ data, successCb, errorCb }: AnyAction) {
+function* createConnectedService({ data, successCb, errorCb }) {
 	const { provider } = data
 	try {
 		yield put(connectedServiceActions.createConnectedServiceLoading())
@@ -36,7 +35,7 @@ function* createConnectedService({ data, successCb, errorCb }: AnyAction) {
 	}
 }
 
-function* updateConnectedService({ id, data, successCb, errorCb }: AnyAction) {
+function* updateConnectedService({ id, data, successCb, errorCb }) {
 	try {
 		yield put(connectedServiceActions.updateConnectedServiceLoading())
 		const getConnectedServicesResponse = yield call(connectedServiceApi.updateConnectedService, id, data)
@@ -49,7 +48,7 @@ function* updateConnectedService({ id, data, successCb, errorCb }: AnyAction) {
 	}
 }
 
-function* deleteConnectedService({ id, scopes = undefined, successCb, errorCb }: AnyAction) {
+function* deleteConnectedService({ id, scopes = undefined, successCb, errorCb }) {
 	try {
 		yield put(connectedServiceActions.deleteConnectedServiceLoading())
 		const getConnectedServicesResponse = yield call(connectedServiceApi.deleteConnectedService, id, scopes)

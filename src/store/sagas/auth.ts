@@ -3,7 +3,6 @@ import { put, takeEvery, call, select } from 'redux-saga/effects'
 import { oauthApi, userApi } from '../../api'
 import { getAccounts, getDefaultAccount } from './accounts'
 import { authUser } from '../selectors'
-import { AnyAction } from 'redux'
 
 export function* getAuthUser() {
 	try {
@@ -23,7 +22,7 @@ export function* authUserInitialState() {
 	yield put(authActions.authUserNotLoaded())
 }
 
-export function* login({ user, provider = null, access_token = null, token_secret = null }: AnyAction) {
+export function* login({ user, provider = null, access_token = null, token_secret = null }) {
 	try {
 		yield put(authActions.createAccessTokenInitialState())
 		yield put(authActions.createAccessToken())
@@ -41,7 +40,7 @@ export function* login({ user, provider = null, access_token = null, token_secre
 	}
 }
 
-export function* logout({  }: AnyAction) {
+export function* logout({  }) {
 	//  auth
 	window.localStorage.removeItem('accessToken')
 	yield put(authActions.createAccessTokenInitialState())
@@ -71,7 +70,7 @@ export function* getAuthMeta() {
 	}
 }
 
-export function* update({ id, user }: AnyAction) {
+export function* update({ id, user }) {
 	try {
 		yield put(authActions.updateAuthUserInitialState())
 		yield put(authActions.updateAuthUserLoading())
@@ -83,7 +82,7 @@ export function* update({ id, user }: AnyAction) {
 	}
 }
 
-export function* create({ user }: AnyAction) {
+export function* create({ user }) {
 	try {
 		yield put(authActions.createUserInitialState())
 		yield put(authActions.createUserLoading())
@@ -95,7 +94,7 @@ export function* create({ user }: AnyAction) {
 	}
 }
 
-function* updatePhoto({ id, payload, successCb, errorCb }: AnyAction) {
+function* updatePhoto({ id, payload, successCb, errorCb }) {
 	try {
 		yield put(authActions.updateAuthPhotoInitialState())
 		yield put(authActions.updateAuthPhotoLoading())

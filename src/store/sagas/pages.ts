@@ -1,9 +1,8 @@
 import { pageActions } from '../actions'
 import { put, takeEvery, call } from 'redux-saga/effects'
 import { pageApi } from '../../api'
-import { AnyAction } from 'redux'
 
-export function* getPages({ packageId, documentId, successCb, errorCb }: AnyAction) {
+export function* getPages({ packageId, documentId, successCb, errorCb }) {
 	try {
 		yield put(pageActions.getPagesLoading())
 		const response = yield call(pageApi.getPages, packageId, documentId)
@@ -15,7 +14,7 @@ export function* getPages({ packageId, documentId, successCb, errorCb }: AnyActi
 	}
 }
 
-export function* getPageImage({ pageId, image_url, successCb, errorCb }: AnyAction) {
+export function* getPageImage({ pageId, image_url, successCb, errorCb }) {
 	try {
 		const response = yield call(pageApi.getPageImage, image_url)
 		yield put(pageActions.setPageImage(pageId, response))

@@ -2,9 +2,8 @@ import { documentActions } from '../actions'
 import { put, takeEvery, call } from 'redux-saga/effects'
 import { documentApi } from '../../api'
 import fileDownload from 'js-file-download'
-import { AnyAction } from 'redux'
 
-export function* getDocuments({ query }: AnyAction) {
+export function* getDocuments({ query }) {
 	try {
 		yield put(documentActions.getDocumentsLoading())
 		const response = yield call(documentApi.getDocuments, query)
@@ -14,7 +13,7 @@ export function* getDocuments({ query }: AnyAction) {
 	}
 }
 
-export function* downloadDocument({ document, preview }: AnyAction) {
+export function* downloadDocument({ document, preview }) {
 	try {
 		if (preview === true) {
 			yield call(previewDocument, { document })

@@ -1,9 +1,8 @@
 import { fieldTypeActions } from '../actions'
 import { put, takeEvery, call } from 'redux-saga/effects'
 import { fieldTypeApi } from '../../api'
-import { AnyAction } from 'redux'
 
-export function* getFieldTypes({ query }: AnyAction) {
+export function* getFieldTypes({ query }) {
 	try {
 		yield put(fieldTypeActions.setFieldTypesLoading())
 		const response = yield call(fieldTypeApi.getFieldTypes, query)

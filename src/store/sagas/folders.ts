@@ -1,9 +1,8 @@
 import { folderActions, notificationActions } from '../actions'
 import { call, put, takeEvery } from 'redux-saga/effects'
 import { folderApi } from '../../api'
-import { AnyAction } from 'redux'
 
-function* getFolders({ query }: AnyAction) {
+function* getFolders({ query }) {
 	try {
 		yield put(folderActions.getFoldersInitialState())
 		yield put(folderActions.getFoldersLoading())
@@ -14,7 +13,7 @@ function* getFolders({ query }: AnyAction) {
 	}
 }
 
-function* createFolder({ data, successCb, errorCb }: AnyAction) {
+function* createFolder({ data, successCb, errorCb }) {
 	try {
 		yield put(folderActions.createFolderInitialState())
 		yield put(folderActions.createFolderLoading())
@@ -34,7 +33,7 @@ function* createFolder({ data, successCb, errorCb }: AnyAction) {
 	}
 }
 
-function* updateFolder({ id, data, successCb, errorCb }: AnyAction) {
+function* updateFolder({ id, data, successCb, errorCb }) {
 	try {
 		yield put(folderActions.updateFolderInitialState())
 		yield put(folderActions.updateFolderLoading())

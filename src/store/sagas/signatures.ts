@@ -1,7 +1,6 @@
 import { signatureActions } from '../actions'
 import { put, takeEvery, call } from 'redux-saga/effects'
 import { signatureApi } from '../../api'
-import { AnyAction } from 'redux'
 
 function* getSignatures() {
 	try {
@@ -13,7 +12,7 @@ function* getSignatures() {
 	}
 }
 
-function* createSignature({ data }: AnyAction) {
+function* createSignature({ data }) {
 	try {
 		yield put(signatureActions.setCreateSignatureLoading())
 		const response = yield call(signatureApi.createSignature, data)
@@ -25,6 +24,6 @@ function* createSignature({ data }: AnyAction) {
 }
 
 export default function* rootSaga() {
-	yield takeEvery(signatureActions.GET_SIGNATURES, getSignatures)
+	yield takeEvery(signatureActions.GET_SIGNATURES, getSignatures
 	yield takeEvery(signatureActions.CREATE_SIGNATURE, createSignature)
 }

@@ -2,9 +2,8 @@ import { packageActions, notificationActions } from '../actions'
 import { put, takeEvery, call } from 'redux-saga/effects'
 import { packageApi } from '../../api'
 import fileDownload from 'js-file-download'
-import { AnyAction } from 'redux'
 
-function* getPackages({ query, successCb, errorCb }: AnyAction) {
+function* getPackages({ query, successCb, errorCb }) {
 	try {
 		yield put(packageActions.getPackagesInitialState())
 		yield put(packageActions.getPackagesLoading())
@@ -17,7 +16,7 @@ function* getPackages({ query, successCb, errorCb }: AnyAction) {
 	}
 }
 
-function* getPackageLexicon({ query, successCb, errorCb }: AnyAction) {
+function* getPackageLexicon({ query, successCb, errorCb }) {
 	try {
 		yield put(packageActions.getPackageLexiconInitialState())
 		yield put(packageActions.getPackageLexiconLoading())
@@ -30,7 +29,7 @@ function* getPackageLexicon({ query, successCb, errorCb }: AnyAction) {
 	}
 }
 
-function* showPackage({ id, successCb, errorCb }: AnyAction) {
+function* showPackage({ id, successCb, errorCb }) {
 	try {
 		yield put(packageActions.showPackageInitialState())
 		yield put(packageActions.showPackageLoading())
@@ -43,7 +42,7 @@ function* showPackage({ id, successCb, errorCb }: AnyAction) {
 	}
 }
 
-function* deletePackage({ id, successCb, errorCb }: AnyAction) {
+function* deletePackage({ id, successCb, errorCb }) {
 	try {
 		//	yield put(packageActions.deletePackageInitialState())
 		//	yield put(packageActions.deletePackageLoading())
@@ -57,7 +56,7 @@ function* deletePackage({ id, successCb, errorCb }: AnyAction) {
 	}
 }
 
-function* createPackage({ data, successCb, errorCb }: AnyAction) {
+function* createPackage({ data, successCb, errorCb }) {
 	try {
 		yield put(packageActions.createPackageInitialState())
 		yield put(packageActions.createPackageLoading())
@@ -71,7 +70,7 @@ function* createPackage({ data, successCb, errorCb }: AnyAction) {
 	}
 }
 
-function* updatePackage({ id, data, successCb, errorCb }: AnyAction) {
+function* updatePackage({ id, data, successCb, errorCb }) {
 	try {
 		yield put(packageActions.updatePackageInitialState())
 		yield put(packageActions.updatePackageLoading())
@@ -84,7 +83,7 @@ function* updatePackage({ id, data, successCb, errorCb }: AnyAction) {
 	}
 }
 
-function* getRecipients({ id, query = {}, successCb, errorCb }: AnyAction) {
+function* getRecipients({ id, query = {}, successCb, errorCb }) {
 	try {
 		yield put(packageActions.getPackageRecipientsInitialState())
 		yield put(packageActions.getPackageRecipientsLoading())
@@ -97,7 +96,7 @@ function* getRecipients({ id, query = {}, successCb, errorCb }: AnyAction) {
 	}
 }
 
-function* createRecipient({ id, data, successCb, errorCb }: AnyAction) {
+function* createRecipient({ id, data, successCb, errorCb }) {
 	try {
 		yield put(packageActions.createPackageRecipientInitialState())
 		yield put(packageActions.createPackageRecipientLoading())
@@ -110,7 +109,7 @@ function* createRecipient({ id, data, successCb, errorCb }: AnyAction) {
 	}
 }
 
-function* updateRecipient({ id, recipientId, data, successCb, errorCb }: AnyAction) {
+function* updateRecipient({ id, recipientId, data, successCb, errorCb }) {
 	try {
 		yield put(packageActions.updatePackageRecipientInitialState())
 		yield put(packageActions.updatePackageRecipientLoading())
@@ -123,7 +122,7 @@ function* updateRecipient({ id, recipientId, data, successCb, errorCb }: AnyActi
 	}
 }
 
-function* getDocuments({ id, query = {}, successCb = undefined, errorCb = undefined }: AnyAction) {
+function* getDocuments({ id, query = {}, successCb = undefined, errorCb = undefined }) {
 	try {
 		yield put(packageActions.getPackageDocumentsInitialState())
 		yield put(packageActions.getPackageDocumentsLoading())
@@ -136,7 +135,7 @@ function* getDocuments({ id, query = {}, successCb = undefined, errorCb = undefi
 	}
 }
 
-function* getPages({ packageId, query = {}, successCb, errorCb }: AnyAction) {
+function* getPages({ packageId, query = {}, successCb, errorCb }) {
 	try {
 		yield put(packageActions.getPagesInitialState())
 		yield put(packageActions.getPagesLoading())
@@ -149,7 +148,7 @@ function* getPages({ packageId, query = {}, successCb, errorCb }: AnyAction) {
 	}
 }
 
-function* createDocuments({ id, data, successCb, errorCb }: AnyAction) {
+function* createDocuments({ id, data, successCb, errorCb }) {
 	try {
 		yield put(packageActions.createPackageDocumentsInitialState())
 		yield put(packageActions.createPackageDocumentsLoading())
@@ -162,7 +161,7 @@ function* createDocuments({ id, data, successCb, errorCb }: AnyAction) {
 	}
 }
 
-function* updateDocument({ packageId, documentId, data, successCb, errorCb }: AnyAction) {
+function* updateDocument({ packageId, documentId, data, successCb, errorCb }) {
 	try {
 		yield put(packageActions.updateDocumentInitialState())
 		yield put(packageActions.updateDocumentLoading())
@@ -177,7 +176,7 @@ function* updateDocument({ packageId, documentId, data, successCb, errorCb }: An
 	}
 }
 
-function* createDocumentFromSocialAccount({ id, socialAccountId, externalFileId, successCb, errorCb }: AnyAction) {
+function* createDocumentFromSocialAccount({ id, socialAccountId, externalFileId, successCb, errorCb }) {
 	try {
 		yield put(packageActions.createDocumentFromSocialAccountInitialState())
 		yield put(packageActions.createDocumentFromSocialAccountLoading())
@@ -196,7 +195,7 @@ function* createDocumentFromSocialAccount({ id, socialAccountId, externalFileId,
 	}
 }
 
-function* downloadPackageDocument({ id, documentId, successCb, errorCb }: AnyAction) {
+function* downloadPackageDocument({ id, documentId, successCb, errorCb }) {
 	try {
 		const downloadResponse = yield call(packageApi.downloadDocument, id, documentId)
 		const fileName = downloadResponse.headers['content-disposition'].replace('attachment; filename=', '')
@@ -208,7 +207,7 @@ function* downloadPackageDocument({ id, documentId, successCb, errorCb }: AnyAct
 	}
 }
 
-function* getPackageImageUrl({ id, image_url, successCb, errorCb }: AnyAction) {
+function* getPackageImageUrl({ id, image_url, successCb, errorCb }) {
 	try {
 		const imageUrl = yield call(packageApi.getDocumentPageImageUrl, image_url)
 		yield put(packageActions.setPackageImageUrl(id, imageUrl))
@@ -219,7 +218,7 @@ function* getPackageImageUrl({ id, image_url, successCb, errorCb }: AnyAction) {
 	}
 }
 
-function* getDocumentImageUrl({ documentId, image_url, successCb, errorCb }: AnyAction) {
+function* getDocumentImageUrl({ documentId, image_url, successCb, errorCb }) {
 	try {
 		const imageUrl = yield call(packageApi.getDocumentPageImageUrl, image_url)
 		yield put(packageActions.setDocumentImageUrl(documentId, imageUrl))
@@ -230,7 +229,7 @@ function* getDocumentImageUrl({ documentId, image_url, successCb, errorCb }: Any
 	}
 }
 
-function* getDocumentPageImageUrl({ documentId, pageId, image_url, successCb, errorCb }: AnyAction) {
+function* getDocumentPageImageUrl({ documentId, pageId, image_url, successCb, errorCb }) {
 	try {
 		const imageUrl = yield call(packageApi.getDocumentPageImageUrl, image_url)
 		yield put(packageActions.setDocumentPageImageUrl(documentId, pageId, imageUrl))
@@ -241,7 +240,7 @@ function* getDocumentPageImageUrl({ documentId, pageId, image_url, successCb, er
 	}
 }
 
-function* publish({ packageId, successCb, errorCb }: AnyAction) {
+function* publish({ packageId, successCb, errorCb }) {
 	try {
 		//	yield put(packageActions.showPackageLoading())
 		const data = yield call(packageApi.publish, packageId)
@@ -255,7 +254,7 @@ function* publish({ packageId, successCb, errorCb }: AnyAction) {
 	}
 }
 
-function* deleteDocument({ id, documentId, successCb, errorCb }: AnyAction) {
+function* deleteDocument({ id, documentId, successCb, errorCb }) {
 	try {
 		yield put(packageActions.deleteDocumentInitialState())
 		yield put(packageActions.deleteDocumentLoading())
@@ -269,7 +268,7 @@ function* deleteDocument({ id, documentId, successCb, errorCb }: AnyAction) {
 	}
 }
 
-function* deleteRecipient({ id, recipientId, successCb, errorCb }: AnyAction) {
+function* deleteRecipient({ id, recipientId, successCb, errorCb }) {
 	try {
 		yield put(packageActions.deletePackageRecipientInitialState())
 		yield put(packageActions.deletePackageRecipientLoading())

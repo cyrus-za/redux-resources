@@ -1,7 +1,6 @@
 import { cardActions, notificationActions } from '../actions'
 import { put, takeEvery, call } from 'redux-saga/effects'
 import { cardApi } from '../../api'
-import { AnyAction } from 'redux'
 
 function* getCards({ query }: any) {
 	try {
@@ -14,7 +13,7 @@ function* getCards({ query }: any) {
 	}
 }
 
-function* createCard({ card, successCb, errorCb }: AnyAction) {
+function* createCard({ card, successCb, errorCb }) {
 	try {
 		yield put(cardActions.createCardInitialState())
 		yield put(cardActions.createCardLoading())
@@ -36,7 +35,7 @@ function* createCard({ card, successCb, errorCb }: AnyAction) {
 	}
 }
 
-function* setDefaultCard({ card }: AnyAction) {
+function* setDefaultCard({ card }) {
 	try {
 		yield put(cardActions.setDefaultCardInitialState())
 		yield put(cardActions.setDefaultCardLoading())
@@ -55,7 +54,7 @@ function* setDefaultCard({ card }: AnyAction) {
 	}
 }
 
-function* deleteCard({ card, successCb, errorCb }: AnyAction) {
+function* deleteCard({ card, successCb, errorCb }) {
 	try {
 		yield put(cardActions.deleteCardInitialState())
 		yield put(cardActions.deleteCardLoading())
@@ -76,7 +75,7 @@ function* deleteCard({ card, successCb, errorCb }: AnyAction) {
 	}
 }
 
-function* updateCard({ id, card, successCb, errorCb }: AnyAction) {
+function* updateCard({ id, card, successCb, errorCb }) {
 	try {
 		yield put(cardActions.updateCardInitialState())
 		yield put(cardActions.updateCardLoading())

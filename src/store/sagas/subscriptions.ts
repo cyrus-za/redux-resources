@@ -1,9 +1,8 @@
 import { notificationActions, subscriptionActions } from '../actions'
 import { put, takeEvery, call } from 'redux-saga/effects'
 import { subscriptionApi } from '../../api'
-import { AnyAction } from 'redux'
 
-function* getSubscriptions({ query }: AnyAction) {
+function* getSubscriptions({ query }) {
 	try {
 		yield put(subscriptionActions.setSubscriptionsLoading())
 		const getSubscriptionsResponse = yield call(subscriptionApi.getSubscriptions, query)
@@ -13,7 +12,7 @@ function* getSubscriptions({ query }: AnyAction) {
 	}
 }
 
-function* createSubscription({ account, plan, coupon, successCb, errorCb }: AnyAction) {
+function* createSubscription({ account, plan, coupon, successCb, errorCb }) {
 	const data = {
 		account_id: account.id,
 		plan_id: plan.id,
@@ -31,7 +30,7 @@ function* createSubscription({ account, plan, coupon, successCb, errorCb }: AnyA
 	}
 }
 
-function* updateSubscription({ subscription, plan, coupon = null, successCb, errorCb }: AnyAction) {
+function* updateSubscription({ subscription, plan, coupon = null, successCb, errorCb }) {
 	const data = {
 		plan_id: plan.id,
 		coupon,
@@ -48,7 +47,7 @@ function* updateSubscription({ subscription, plan, coupon = null, successCb, err
 	}
 }
 
-function* deleteSubscription({ subscription, successCb, errorCb }: AnyAction) {
+function* deleteSubscription({ subscription, successCb, errorCb }) {
 	try {
 		yield put(subscriptionActions.setDeleteSubscriptionLoading())
 		const response = yield call(subscriptionApi.deleteSubscription, subscription.id)

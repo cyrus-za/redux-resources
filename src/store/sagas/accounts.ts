@@ -1,7 +1,6 @@
 import { accountActions, accountInviteActions, notificationActions } from '../actions'
 import { put, takeEvery, call } from 'redux-saga/effects'
 import { accountApi } from '../../api'
-import { AnyAction } from 'redux'
 
 export function* getAccounts() {
 	try {
@@ -25,7 +24,7 @@ export function* getDefaultAccount() {
 	}
 }
 
-export function* setDefaultAccount({ id }: AnyAction) {
+export function* setDefaultAccount({ id }) {
 	try {
 		yield put(accountActions.setDefaultAccountInitialState())
 		yield put(accountActions.setDefaultAccountLoading())
@@ -37,7 +36,7 @@ export function* setDefaultAccount({ id }: AnyAction) {
 	}
 }
 
-export function* showAccount({ id }: AnyAction) {
+export function* showAccount({ id }) {
 	try {
 		yield put(accountActions.showAccountInitialState())
 		yield put(accountActions.showAccountLoading())
@@ -59,7 +58,7 @@ export function* getAccountUsers({ id }: any) {
 	}
 }
 
-export function* createAccount({ account, successCb, errorCb }: AnyAction) {
+export function* createAccount({ account, successCb, errorCb }) {
 	try {
 		yield put(accountActions.createAccountInitialState())
 		yield put(accountActions.createAccountLoading())
@@ -74,7 +73,7 @@ export function* createAccount({ account, successCb, errorCb }: AnyAction) {
 	}
 }
 
-export function* deleteAccountMember({ account, member, successCb, errorCb }: AnyAction) {
+export function* deleteAccountMember({ account, member, successCb, errorCb }) {
 	try {
 		yield put(accountActions.deleteAccountMemberInitialState())
 		yield put(accountActions.deleteAccountMemberLoading())
@@ -89,7 +88,7 @@ export function* deleteAccountMember({ account, member, successCb, errorCb }: An
 	}
 }
 
-export function* updateAccountMember({ account, member, data, successCb, errorCb }: AnyAction) {
+export function* updateAccountMember({ account, member, data, successCb, errorCb }) {
 	try {
 		yield put(accountActions.updateAccountMemberInitialState())
 		yield put(accountActions.updateAccountMemberLoading())
@@ -104,7 +103,7 @@ export function* updateAccountMember({ account, member, data, successCb, errorCb
 	}
 }
 
-export function* updateAccount({ account, data, successCb, errorCb }: AnyAction) {
+export function* updateAccount({ account, data, successCb, errorCb }) {
 	try {
 		yield put(accountActions.updateAccountInitialState())
 		yield put(accountActions.updateAccountLoading())
@@ -118,7 +117,7 @@ export function* updateAccount({ account, data, successCb, errorCb }: AnyAction)
 	}
 }
 
-function* updateAccountPhoto({ id, payload, successCb, errorCb }: AnyAction) {
+function* updateAccountPhoto({ id, payload, successCb, errorCb }) {
 	try {
 		yield put(accountActions.updateAccountPhotoInitialState())
 		yield put(accountActions.updateAccountPhotoLoading())
@@ -132,7 +131,7 @@ function* updateAccountPhoto({ id, payload, successCb, errorCb }: AnyAction) {
 	}
 }
 
-function* getInvoices({ account }: AnyAction) {
+function* getInvoices({ account }) {
 	try {
 		yield put(accountActions.getInvoicesInitialState())
 		yield put(accountActions.getInvoicesLoading())

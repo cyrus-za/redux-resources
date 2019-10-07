@@ -1,25 +1,24 @@
 import { authActions, notificationActions } from '../actions'
 import { put, takeEvery, call } from 'redux-saga/effects'
 import { notificationApi } from '../../api'
-import { AnyAction } from 'redux'
 
-function* userConfirmedEmailEvent({ payload }: AnyAction) {
+function* userConfirmedEmailEvent({ payload }) {
 	yield put(authActions.authMetaFulfilled(payload))
 	yield put(notificationActions.displaySnackbarMessage('Email confirmed!', 2000))
 }
 
-function* userUpdatedEmailEvent({ payload }: AnyAction) {
+function* userUpdatedEmailEvent({ payload }) {
 	yield put(authActions.authMetaFulfilled(payload))
 	yield put(
 		notificationActions.displaySnackbarMessage('Please check your inbox and confirm your new email address', 2000)
 	)
 }
 
-function* notificationReceivedEvent({ payload }: AnyAction) {
+function* notificationReceivedEvent({ payload }) {
 	yield put(notificationActions.addNotificationToList(payload))
 }
 
-export function* getNotifications({ query }: AnyAction) {
+export function* getNotifications({ query }) {
 	try {
 		yield put(notificationActions.getNotificationsInitialState())
 		yield put(notificationActions.getNotificationsLoading())
@@ -45,7 +44,7 @@ export function* getTotalUnreadNotifications() {
 	}
 }
 
-export function* updateNotification({ id, data }: AnyAction) {
+export function* updateNotification({ id, data }) {
 	try {
 		yield put(notificationActions.updateNotificationInitialState())
 		yield put(notificationActions.updateNotificationLoading())

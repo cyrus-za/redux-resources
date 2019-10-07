@@ -1,9 +1,8 @@
 import { fieldActions } from '../actions'
 import { put, takeEvery, call } from 'redux-saga/effects'
 import { fieldApi } from '../../api'
-import { AnyAction } from 'redux'
 
-export function* getFields({ packageId, query = {}, successCb, errorCb }: AnyAction) {
+export function* getFields({ packageId, query = {}, successCb, errorCb }) {
 	try {
 		yield put(fieldActions.getFieldsLoading())
 		const response = yield call(fieldApi.getFields, packageId, query)
@@ -15,7 +14,7 @@ export function* getFields({ packageId, query = {}, successCb, errorCb }: AnyAct
 	}
 }
 
-function* createField({ packageId, documentId, data, successCb, errorCb }: AnyAction) {
+function* createField({ packageId, documentId, data, successCb, errorCb }) {
 	try {
 		yield put(fieldActions.setItemLoading())
 		const response = yield call<any>(fieldApi.createField, packageId, documentId, data)
@@ -27,7 +26,7 @@ function* createField({ packageId, documentId, data, successCb, errorCb }: AnyAc
 	}
 }
 
-function* updateField({ packageId, documentId, fieldId, data, successCb, errorCb }: AnyAction) {
+function* updateField({ packageId, documentId, fieldId, data, successCb, errorCb }) {
 	try {
 		yield put(fieldActions.setItemLoading())
 		const response = yield call<any>(fieldApi.updateField, packageId, documentId, fieldId, data)
@@ -39,7 +38,7 @@ function* updateField({ packageId, documentId, fieldId, data, successCb, errorCb
 	}
 }
 
-function* deleteField({ packageId, documentId, fieldId, successCb, errorCb }: AnyAction) {
+function* deleteField({ packageId, documentId, fieldId, successCb, errorCb }) {
 	try {
 		yield put(fieldActions.setItemLoading())
 		yield call<any>(fieldApi.deleteField, packageId, documentId, fieldId)

@@ -2,9 +2,8 @@ import { accountInviteActions, notificationActions } from '../actions'
 import { put, takeEvery, call, select } from 'redux-saga/effects'
 import { accountInviteApi } from '../../api'
 import { authUser } from '../selectors'
-import { AnyAction } from 'redux'
 
-export function* getAccountInvites({ query }: any) {
+export function* getAccountInvites({ query }) {
 	try {
 		yield put(accountInviteActions.accountInvitesInitialState())
 		yield put(accountInviteActions.accountInvitesLoading())
@@ -15,7 +14,7 @@ export function* getAccountInvites({ query }: any) {
 	}
 }
 
-export function* deleteAccountInvite({ invite, successCb, errorCb }: AnyAction) {
+export function* deleteAccountInvite({ invite, successCb, errorCb }) {
 	try {
 		yield put(accountInviteActions.deleteAccountInviteInitialState())
 		yield put(accountInviteActions.deleteAccountInviteLoading())
@@ -32,7 +31,7 @@ export function* deleteAccountInvite({ invite, successCb, errorCb }: AnyAction) 
 	}
 }
 
-export function* deleteMyAccountInvite({ invite }: AnyAction) {
+export function* deleteMyAccountInvite({ invite }) {
 	try {
 		yield put(accountInviteActions.deleteAccountInviteLoading())
 		const response = yield call(accountInviteApi.deleteAccountInvite, invite.id)
@@ -44,7 +43,7 @@ export function* deleteMyAccountInvite({ invite }: AnyAction) {
 	}
 }
 
-export function* createAccountInvite({ invite, successCb, errorCb }: AnyAction) {
+export function* createAccountInvite({ invite, successCb, errorCb }) {
 	try {
 		yield put(accountInviteActions.createAccountInviteInitialState())
 		yield put(accountInviteActions.createAccountInviteLoading())
@@ -60,7 +59,7 @@ export function* createAccountInvite({ invite, successCb, errorCb }: AnyAction) 
 	}
 }
 
-export function* acceptAccountInvite({ invite }: AnyAction) {
+export function* acceptAccountInvite({ invite }) {
 	try {
 		yield put(accountInviteActions.acceptAccountInviteInitialState())
 		yield put(accountInviteActions.acceptAccountInviteLoading())

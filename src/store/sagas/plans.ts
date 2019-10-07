@@ -1,9 +1,8 @@
 import { planActions } from '../actions'
 import { put, takeEvery, call } from 'redux-saga/effects'
 import { planApi } from '../../api'
-import { AnyAction } from 'redux'
 
-function* getPlans({ query }: AnyAction) {
+function* getPlans({ query }) {
 	try {
 		yield put(planActions.setPlansLoading())
 		const getPlansResponse = yield call(planApi.getPlans, query)

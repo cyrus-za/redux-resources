@@ -1,9 +1,8 @@
 import { authActions, notificationActions, userActions } from '../actions'
 import { put, takeEvery, call } from 'redux-saga/effects'
 import { userApi } from '../../api'
-import { AnyAction } from 'redux'
 
-function* updatePassword({ id, payload, successCb, errorCb }: AnyAction) {
+function* updatePassword({ id, payload, successCb, errorCb }) {
 	try {
 		yield put(userActions.updatePasswordInitialState())
 		yield put(userActions.updatePasswordLoading())
@@ -28,7 +27,7 @@ function* resendEmailConfirmation() {
 	}
 }
 
-function* getNotificationPreferences({ id }: AnyAction) {
+function* getNotificationPreferences({ id }) {
 	try {
 		yield put(userActions.getNotificationPreferencesInitialState())
 		yield put(userActions.getNotificationPreferencesLoading())
@@ -39,7 +38,7 @@ function* getNotificationPreferences({ id }: AnyAction) {
 	}
 }
 
-function* updateNotificationPreferences({ id, payload }: AnyAction) {
+function* updateNotificationPreferences({ id, payload }) {
 	try {
 		yield put(userActions.updateNotificationPreferencesInitialState())
 		yield put(userActions.updateNotificationPreferencesLoading())
@@ -51,7 +50,7 @@ function* updateNotificationPreferences({ id, payload }: AnyAction) {
 	}
 }
 
-function* confirmEmail({ token, successCb, errorCb }: AnyAction) {
+function* confirmEmail({ token, successCb, errorCb }) {
 	try {
 		yield put(userActions.confirmEmailInitialState())
 		yield put(userActions.confirmEmailLoading())
