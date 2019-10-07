@@ -1,12 +1,10 @@
 {
   "name": "redux-resources",
   "version": "0.1.0",
-  "private": false,
   "scripts": {
-    "build": "yarn build-mjs && yarn build-cjs",
-    "build-mjs": "tsc && babel ./lib/esm -d ./lib/esm",
-    "build-cjs": "tsc -p ./tsconfig.commonjs.json"
+    "prettier": "prettier  --write 'src/**/*.{ts,tsx,js,jsx,json,css}'"
   },
+  "private": false,
   "dependencies": {
     "axios": "^0.19.0",
     "immutable": "^3.8.2",
@@ -19,23 +17,7 @@
     "yarn": "^1.16.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.4.4",
-    "@babel/core": "^7.4.4",
-    "@types/react": "^16.8.17",
-    "babel-eslint": "^10.0.1",
-    "copy": "^0.3.2",
-    "eslint": "^5.6.1",
-    "eslint-config-google": "^0.12.0",
-    "eslint-config-prettier": "^4.2.0",
-    "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-import": "^2.17.2",
-    "eslint-plugin-node": "^9.0.1",
-    "eslint-plugin-prettier": "^3.0.0",
-    "eslint-plugin-promise": "^4.0.1",
-    "eslint-plugin-standard": "^4.0.0",
-    "rimraf": "^2.6.2",
-    "prettier": "^1.18.2",
-    "typescript": "^3.5.2"
+    "prettier": "^1.18.2"
   },
   "engines": {
     "node": ">=11.0.0 <12.0.0",
