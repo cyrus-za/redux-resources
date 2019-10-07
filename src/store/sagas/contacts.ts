@@ -2,13 +2,7 @@ import { contactActions } from '../actions'
 import { put, takeEvery, call } from 'redux-saga/effects'
 import { contactApi } from '../../api'
 
-interface Props {
-	payload
-	successCb
-	errorCb
-}
-
-function* searchContacts({ payload, successCb, errorCb }: Props) {
+function* searchContacts({ payload, successCb, errorCb }) {
 	try {
 		yield put(contactActions.setSearchContactsLoading())
 		const response = yield call(contactApi.searchContact, payload)

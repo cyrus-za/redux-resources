@@ -2,13 +2,7 @@ import { notificationActions, feedbackActions } from '../actions'
 import { put, takeEvery, call } from 'redux-saga/effects'
 import { feedbackApi } from '../../api'
 
-interface Props {
-	payload
-	successCb: VoidFunction
-	errorCb: VoidFunction
-}
-
-function* sendFeedback({ payload, successCb, errorCb }: Props) {
+function* sendFeedback({ payload, successCb, errorCb }) {
 	try {
 		yield put(feedbackActions.setSendFeedbackLoading())
 		const response = yield call(feedbackApi.sendFeedback, payload)
