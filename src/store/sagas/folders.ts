@@ -26,7 +26,7 @@ function* createFolder({ data, successCb, errorCb }) {
 			account_ids: createFolderResponse.data.account_id,
 		}
 		console.log(query)
-		yield call<any>(getFolders, { query })
+		yield call(getFolders, { query })
 	} catch (error) {
 		yield put(folderActions.createFolderRejected(error))
 		errorCb && errorCb()
@@ -37,7 +37,7 @@ function* updateFolder({ id, data, successCb, errorCb }) {
 	try {
 		yield put(folderActions.updateFolderInitialState())
 		yield put(folderActions.updateFolderLoading())
-		const updateFolderResponse = yield call<any>(folderApi.updateFolder, id, data)
+		const updateFolderResponse = yield call(folderApi.updateFolder, id, data)
 		yield put(folderActions.updateFolderFulfilled(updateFolderResponse))
 		successCb && successCb()
 		yield put(notificationActions.displaySnackbarMessage('Folder updated!', 2000))
@@ -45,7 +45,7 @@ function* updateFolder({ id, data, successCb, errorCb }) {
 		const query = {
 			account_ids: updateFolderResponse.data.account_id,
 		}
-		yield call<any>(getFolders, { query })
+		yield call(getFolders, { query })
 	} catch (error) {
 		yield put(folderActions.updateFolderRejected(error))
 		errorCb && errorCb()

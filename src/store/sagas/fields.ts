@@ -17,7 +17,7 @@ export function* getFields({ packageId, query = {}, successCb, errorCb }) {
 function* createField({ packageId, documentId, data, successCb, errorCb }) {
 	try {
 		yield put(fieldActions.setItemLoading())
-		const response = yield call<any>(fieldApi.createField, packageId, documentId, data)
+		const response = yield call(fieldApi.createField, packageId, documentId, data)
 		yield put(fieldActions.setItemFulfilled(response))
 		successCb && successCb()
 	} catch (error) {
@@ -29,7 +29,7 @@ function* createField({ packageId, documentId, data, successCb, errorCb }) {
 function* updateField({ packageId, documentId, fieldId, data, successCb, errorCb }) {
 	try {
 		yield put(fieldActions.setItemLoading())
-		const response = yield call<any>(fieldApi.updateField, packageId, documentId, fieldId, data)
+		const response = yield call(fieldApi.updateField, packageId, documentId, fieldId, data)
 		yield put(fieldActions.setItemFulfilled(response))
 		successCb && successCb()
 	} catch (error) {
@@ -41,7 +41,7 @@ function* updateField({ packageId, documentId, fieldId, data, successCb, errorCb
 function* deleteField({ packageId, documentId, fieldId, successCb, errorCb }) {
 	try {
 		yield put(fieldActions.setItemLoading())
-		yield call<any>(fieldApi.deleteField, packageId, documentId, fieldId)
+		yield call(fieldApi.deleteField, packageId, documentId, fieldId)
 		yield put(fieldActions.setItemFulfilled(null))
 		successCb && successCb()
 	} catch (error) {

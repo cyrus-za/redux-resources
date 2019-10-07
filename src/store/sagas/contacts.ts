@@ -15,5 +15,5 @@ function* searchContacts({ payload, successCb, errorCb }) {
 }
 
 export default function* rootSaga() {
-	yield takeEvery<any>(contactActions.SEARCH_CONTACTS, searchContacts)
+	yield takeEvery(contactActions.SEARCH_CONTACTS, searchContacts)
 }

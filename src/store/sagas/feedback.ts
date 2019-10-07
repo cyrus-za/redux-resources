@@ -19,5 +19,5 @@ function* sendFeedback({ payload, successCb, errorCb }) {
 }
 
 export default function* rootSaga() {
-	yield takeEvery<any>(feedbackActions.SEND_FEEDBACK, sendFeedback)
+	yield takeEvery(feedbackActions.SEND_FEEDBACK, sendFeedback)
 }
