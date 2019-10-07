@@ -1,6 +1,6 @@
 export {default as accountInvites} from './accountInvites'
 export {default as accounts} from './accounts'
-export {default as auth} from './auth'
+export {default as auth, loginSaga, logoutSaga} from './auth'
 export {default as cards} from './cards'
 export {default as documents} from './documents'
 export {default as fields} from './fields'
