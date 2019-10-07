@@ -1,5 +1,3 @@
-import { Contact } from '../../components/PackageAddEdit/Steps/Recipients/types'
-
 const types = {
 	SEARCH_CONTACTS: '[contacts] SEARCH_CONTACTS',
 	SEARCH_LOADING: '[contacts] SEARCH_LOADING',
@@ -9,7 +7,7 @@ const types = {
 
 export const contactActions = {
 	...types,
-	searchContacts: (payload: Partial<Contact>, successCb?, errorCb?) => ({
+	searchContacts: (payload, successCb?, errorCb?) => ({
 		type: types.SEARCH_CONTACTS,
 		payload,
 		successCb,

@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "private": false,
   "scripts": {
-    "prettier": "prettier  --write 'src/**/*.{ts,tsx,js,jsx,json,css}'"
+    "prettier": "prettier  --write 'src/**/*.{ts,tsx,js,jsx,json,css}'",
+    "typescript-test": "tsc -p ./tsconfig.json"
   },
   "dependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
     "@types/jest": "^24.0.18",
     "@types/node": "^12.7.11",
     "@types/react": "^16.9.5",

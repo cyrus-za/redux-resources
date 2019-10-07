@@ -1,5 +1,3 @@
-import { Feedback } from '../../components/Feedback'
-
 const types = {
 	SEND_FEEDBACK: '[feedback] SEND_FEEDBACK',
 	SET_SEND_FEEDBACK_LOADING: '[feedback] SET_SEND_FEEDBACK_LOADING',
@@ -9,7 +7,7 @@ const types = {
 
 export const feedbackActions = {
 	...types,
-	sendFeedback: (payload: Feedback, successCb, errorCb) => ({
+	sendFeedback: (payload, successCb, errorCb) => ({
 		type: types.SEND_FEEDBACK,
 		payload,
 		successCb,
