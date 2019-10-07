@@ -1,12 +1,11 @@
 import { contactActions } from '../actions'
 import { put, takeEvery, call } from 'redux-saga/effects'
-import { contactApi } from '../../api/contactApi'
-import { Contact } from '../../components/PackageAddEdit/Steps/Recipients/types'
+import { contactApi } from '../../api'
 
 interface Props {
-	payload: Partial<Contact>
-	successCb: (response: Contact[]) => void
-	errorCb: (err: Error) => void
+	payload
+	successCb
+	errorCb
 }
 
 function* searchContacts({ payload, successCb, errorCb }: Props) {

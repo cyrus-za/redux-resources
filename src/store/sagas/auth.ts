@@ -1,12 +1,10 @@
 import { accountActions, authActions, notificationActions } from '../actions'
 import { put, takeEvery, call, select } from 'redux-saga/effects'
-import { userApi } from '../../api/userApi'
-import { oauthApi } from '../../api/oauthApi'
+import { oauthApi, userApi } from '../../api'
 import { getAccounts, getDefaultAccount } from './accounts'
 
 import { connectToNotificationService, subscribeToUserEvents } from './notifications'
 import { authUser } from '../selectors'
-import routes from '../../router/routes'
 import { AnyAction } from 'redux'
 
 export function* getAuthUser() {
@@ -45,11 +43,10 @@ export function* login({ user, provider = null, access_token = null, token_secre
 	}
 }
 
-export function* logout({ history }: AnyAction) {
+export function* logout({  }: AnyAction) {
 	//  auth
 	window.localStorage.removeItem('accessToken')
 	yield put(authActions.createAccessTokenInitialState())
-	history.push(routes.login.path)
 	window.localStorage.removeItem('userMeta')
 	yield put(authActions.authUserInitialState())
 	yield put(authActions.authMetaInitialState())

@@ -1,6 +1,6 @@
 import { fieldTypeActions } from '../actions'
 import { put, takeEvery, call } from 'redux-saga/effects'
-import { fieldTypeApi } from '../../api/fieldTypeApi'
+import { fieldTypeApi } from '../../api'
 import { AnyAction } from 'redux'
 
 export function* getFieldTypes({ query }: AnyAction) {

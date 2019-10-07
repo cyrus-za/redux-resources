@@ -1,6 +1,6 @@
 import { notificationActions, subscriptionActions } from '../actions'
 import { put, takeEvery, call } from 'redux-saga/effects'
-import { subscriptionApi } from '../../api/subscriptionApi'
+import { subscriptionApi } from '../../api'
 import { AnyAction } from 'redux'
 
 function* getSubscriptions({ query }: AnyAction) {

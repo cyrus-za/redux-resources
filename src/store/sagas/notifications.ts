@@ -1,8 +1,6 @@
 import { authActions, notificationActions } from '../actions'
 import { put, takeEvery, call, select } from 'redux-saga/effects'
-import { notificationApi } from '../../api/notificationApi'
-import { pusherApi } from '../../api/pusherApi'
-import { toastr } from 'react-redux-toastr'
+import { notificationApi, pusherApi } from '../../api'
 import { AnyAction } from 'redux'
 
 function* userConfirmedEmailEvent({ payload }: AnyAction) {
@@ -90,19 +88,6 @@ export function* disconnectFromNotificationService() {
 	yield put(notificationActions.subscribeToUserEventsInitialState())
 }
 
-function displaySnackbarMessage({ message }: AnyAction) {
-	const options = {
-		timeOut: 30000,
-		newestOnTop: true,
-		position: 'top-right',
-		transitionIn: 'fadeIn',
-		transitionOut: 'fadeOut',
-		right: '20px',
-		closeOnToastrClick: false,
-	}
-	toastr.success('', message, options)
-}
-
 export default function* rootSaga() {
 	yield takeEvery(notificationActions.GET_NOTIFICATIONS, getNotifications)
 	yield takeEvery(notificationActions.GET_TOTAL_UNREAD_NOTIFICATIONS, getTotalUnreadNotifications)
@@ -117,5 +102,4 @@ export default function* rootSaga() {
 	yield takeEvery(notificationActions.USER_CONFIRMED_EMAIL_EVENT, userConfirmedEmailEvent)
 	yield takeEvery(notificationActions.USER_UPDATED_EMAIL_EVENT, userUpdatedEmailEvent)
 	yield takeEvery(notificationActions.NOTIFICATION_RECEIVED_EVENT, notificationReceivedEvent)
-	yield takeEvery(notificationActions.DISPLAY_SNACKBAR_MESSAGE, displaySnackbarMessage)
 }

@@ -1,8 +1,7 @@
 import { connectedServiceActions, notificationActions } from '../actions'
 import { put, takeEvery, call } from 'redux-saga/effects'
-import { connectedServiceApi } from '../../api/connectedServiceApi'
+import { connectedServiceApi } from '../../api'
 import { AnyAction } from 'redux'
-import { parseApiResponse } from '../../utilities/socialAccountUtility'
 
 function* getConnectedServices({ query = {} }: AnyAction) {
 	try {
@@ -11,7 +10,10 @@ function* getConnectedServices({ query = {} }: AnyAction) {
 		yield put(connectedServiceActions.setConnectedServicesFulfilled(getConnectedServicesResponse))
 
 		const list = getConnectedServicesResponse.data
-		const data = parseApiResponse(list)
+		const data = {
+			connected: list.data,
+			available: list.data,
+		}
 
 		yield put(connectedServiceActions.setConnectedServices(data.connected))
 		yield put(connectedServiceActions.setAvailableServices(data.available))

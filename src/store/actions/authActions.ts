@@ -73,11 +73,6 @@ export const authActions = {
 		payload: null,
 		user,
 	}),
-	logUserOut: (history) => ({
-		type: types.LOG_USER_OUT,
-		payload: null,
-		history,
-	}),
 	createSocialAccessToken: (provider, access_token, token_secret) => ({
 		type: types.CREATE_SOCIAL_ACCESS_TOKEN,
 		payload: null,

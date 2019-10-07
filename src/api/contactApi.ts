@@ -1,12 +1,11 @@
 import axios from 'axios'
 import config from '../config'
-import { Contact } from '../components/PackageAddEdit/Steps/Recipients/types'
 
 export const contactApi = {
 	searchContact,
 }
 
-function searchContact(data: Partial<Contact>) {
+function searchContact(data) {
 	return axios({
 		url: `${config.apiBase}/contacts`,
 		method: 'GET',

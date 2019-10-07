@@ -1,6 +1,6 @@
 import { documentActions } from '../actions'
 import { put, takeEvery, call } from 'redux-saga/effects'
-import { documentApi } from '../../api/documentApi'
+import { documentApi } from '../../api'
 import fileDownload from 'js-file-download'
 import { AnyAction } from 'redux'
 

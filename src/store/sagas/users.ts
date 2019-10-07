@@ -1,6 +1,6 @@
 import { authActions, notificationActions, userActions } from '../actions'
 import { put, takeEvery, call } from 'redux-saga/effects'
-import { userApi } from '../../api/userApi'
+import { userApi } from '../../api'
 import { AnyAction } from 'redux'
 
 function* updatePassword({ id, payload, successCb, errorCb }: AnyAction) {

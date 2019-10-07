@@ -1,6 +1,6 @@
 import { accountActions, accountInviteActions, notificationActions } from '../actions'
 import { put, takeEvery, call } from 'redux-saga/effects'
-import { accountApi } from '../../api/accountApi'
+import { accountApi } from '../../api'
 import { AnyAction } from 'redux'
 
 export function* getAccounts() {
