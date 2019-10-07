@@ -353,7 +353,7 @@ export const packageActions = {
 		type: types.DELETE_PACKAGE_RECIPIENT_LOADING,
 		payload: null,
 	}),
-	deletePackageRecipientFulfilled: (response?) => ({
+	deletePackageRecipientFulfilled: (response) => ({
 		type: types.DELETE_PACKAGE_RECIPIENT_FULFILLED,
 		payload: response,
 	}),

@@ -50,7 +50,7 @@ export const documentActions = {
 		type: types.DOWNLOAD_DOCUMENT_LOADING,
 		payload: null,
 	}),
-	downloadDocumentFulfilled: (response?) => ({
+	downloadDocumentFulfilled: (response) => ({
 		type: types.DOWNLOAD_DOCUMENT_FULFILLED,
 		payload: response,
 	}),
