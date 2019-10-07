@@ -1,6 +1,6 @@
 import { authActions, notificationActions } from '../actions'
-import { put, takeEvery, call, select } from 'redux-saga/effects'
-import { notificationApi, pusherApi } from '../../api'
+import { put, takeEvery, call } from 'redux-saga/effects'
+import { notificationApi } from '../../api'
 import { AnyAction } from 'redux'
 
 function* userConfirmedEmailEvent({ payload }: AnyAction) {
@@ -67,37 +67,11 @@ export function* deleteNotification() {
 	}
 }
 
-export function* connectToNotificationService() {
-	yield call(pusherApi.connect)
-}
-export function* subscribeToUserEvents() {
-	try {
-		yield put(notificationActions.subscribeToUserEventsLoading())
-		const state = yield select()
-		const userId = state.auth.toJS().user.data.id
-		yield call(pusherApi.subscribeToUserEvents, userId)
-		yield put(notificationActions.subscribeToUserEventsFulfilled())
-	} catch (error) {
-		yield put(notificationActions.subscribeToUserEventsRejected(error))
-	}
-}
-
-export function* disconnectFromNotificationService() {
-	yield call(pusherApi.handleLogOut)
-	yield put(notificationActions.connectToNotificationServiceInitialState())
-	yield put(notificationActions.subscribeToUserEventsInitialState())
-}
-
 export default function* rootSaga() {
 	yield takeEvery(notificationActions.GET_NOTIFICATIONS, getNotifications)
 	yield takeEvery(notificationActions.GET_TOTAL_UNREAD_NOTIFICATIONS, getTotalUnreadNotifications)
 	yield takeEvery(notificationActions.UPDATE_NOTIFICATION, updateNotification)
 	yield takeEvery(notificationActions.DELETE_NOTIFICATION, deleteNotification)
-
-	yield takeEvery(notificationActions.CONNECT_TO_NOTIFICATION_SERVICE, connectToNotificationService)
-	yield takeEvery(notificationActions.SUBSCRIBE_TO_USER_EVENTS, subscribeToUserEvents)
-
-	yield takeEvery(notificationActions.DISCONNECT_FROM_NOTIFICATION_SERVICE, disconnectFromNotificationService)
 
 	yield takeEvery(notificationActions.USER_CONFIRMED_EMAIL_EVENT, userConfirmedEmailEvent)
 	yield takeEvery(notificationActions.USER_UPDATED_EMAIL_EVENT, userUpdatedEmailEvent)
