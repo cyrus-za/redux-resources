@@ -193,15 +193,19 @@ export default (state = initialState, action) => {
 			})
 		case accountActions.UPDATE_ACCOUNT_FULFILLED:
 			const updateAccountResponse = action.payload.data
-			let returnVal = {
-				updateAccount: stateUtility.getObserverFulfilled(),
-				item: stateUtility.getItemFulfilled(updateAccountResponse),
-			} as any
 			if (updateAccountResponse.id === state.toJS().defaultAccount.data.id) {
 				window.localStorage.setItem('defaultAccount', JSON.stringify(updateAccountResponse))
-				returnVal.defaultAccount = stateUtility.getItemFulfilled(updateAccountResponse)
+				return state.merge({
+					updateAccount: stateUtility.getObserverFulfilled(),
+					item: stateUtility.getItemFulfilled(updateAccountResponse),
+					defaultAccount: stateUtility.getItemFulfilled(updateAccountResponse)
+				})
+			} else {
+				return state.merge({
+					updateAccount: stateUtility.getObserverFulfilled(),
+					item: stateUtility.getItemFulfilled(updateAccountResponse),
+				})
 			}
-			return state.merge(returnVal)
 
 		case accountActions.UPDATE_ACCOUNT_REJECTED:
 			return state.merge({
