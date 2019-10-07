@@ -1,7 +1,7 @@
 import axios from 'axios'
 import config from '../config'
 
-export const userApi = {
+export default {
 	createUser,
 	me,
 	getUserMeta,

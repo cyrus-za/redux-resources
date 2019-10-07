@@ -114,7 +114,7 @@ const types = {
 	PUBLISH_REJECTED: '[packages] PUBLISH_REJECTED',
 }
 
-export const packageActions = {
+export default {
 	...types,
 	getPackages: (query = {}, successCb = undefined, errorCb = undefined) => ({
 		type: types.GET_PACKAGES,

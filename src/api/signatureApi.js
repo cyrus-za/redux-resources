@@ -1,7 +1,7 @@
 import axios from 'axios'
 import config from '../config'
 
-export const signatureApi = {
+export default {
 	getSignatures,
 	createSignature,
 }

@@ -1,6 +1,6 @@
-import { folderActions, notificationActions } from '../actions/index'
+import { folderActions, notificationActions } from '../actions'
 import { call, put, takeEvery } from 'redux-saga/effects'
-import { folderApi } from '../../api/index'
+import { folderApi } from '../../api'
 
 function* getFolders({ query }) {
 	try {

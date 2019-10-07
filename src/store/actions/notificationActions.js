@@ -47,7 +47,7 @@ const types = {
 	SUBSCRIBE_TO_USER_EVENTS_REJECTED: '[cards] SUBSCRIBE_TO_USER_EVENTS_REJECTED',
 }
 
-export const notificationActions = {
+export default {
 	...types,
 	getNotifications: (query) => ({
 		type: types.GET_NOTIFICATIONS,

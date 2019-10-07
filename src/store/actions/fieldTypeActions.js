@@ -5,7 +5,7 @@ const types = {
 	SET_FIELD_TYPES_REJECTED: '[fieldTypes] SET_FIELD_TYPES_REJECTED',
 }
 
-export const fieldTypeActions = {
+export default {
 	...types,
 	getFieldTypes: (query = {}) => ({
 		type: types.GET_FIELD_TYPES,

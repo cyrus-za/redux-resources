@@ -1,6 +1,6 @@
-import { packageTypeActions } from '../actions/index'
+import { packageTypeActions } from '../actions'
 import { put, takeEvery, call } from 'redux-saga/effects'
-import { packageTypeApi } from '../../api/index'
+import { packageTypeApi } from '../../api'
 
 export function* getPackageTypes(query) {
 	try {

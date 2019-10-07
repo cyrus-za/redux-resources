@@ -1,6 +1,6 @@
-import { cardActions, notificationActions } from '../actions/index'
+import { cardActions, notificationActions } from '../actions'
 import { put, takeEvery, call } from 'redux-saga/effects'
-import { cardApi } from '../../api/index'
+import { cardApi } from '../../api'
 
 function* getCards({ query }) {
 	try {

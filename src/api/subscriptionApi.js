@@ -1,7 +1,7 @@
 import axios from 'axios'
 import config from '../config'
 
-export const subscriptionApi = {
+export default {
 	getSubscriptions,
 	createSubscription,
 	updateSubscription,

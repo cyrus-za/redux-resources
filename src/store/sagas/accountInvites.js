@@ -1,6 +1,6 @@
-import { accountInviteActions, notificationActions } from '../actions/index'
+import { accountInviteActions, notificationActions } from '../actions'
 import { put, takeEvery, call, select } from 'redux-saga/effects'
-import { accountInviteApi } from '../../api/index'
+import { accountInviteApi } from '../../api'
 import { authUser } from '../selectors'
 
 export function* getAccountInvites({ query }) {

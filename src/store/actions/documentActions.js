@@ -12,7 +12,7 @@ const types = {
 	DOWNLOAD_DOCUMENT_REJECTED: '[documents] DOWNLOAD_DOCUMENT_REJECTED',
 }
 
-export const documentActions = {
+export default {
 	...types,
 	getDocuments: (query = {}) => ({
 		type: types.GET_DOCUMENTS,

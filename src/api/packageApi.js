@@ -2,7 +2,7 @@ import axios from 'axios'
 import config from '../config'
 import { keysToSnakeCase } from '../utilities/helpers'
 
-export const packageApi = {
+export default {
 	getPackages,
 	getPackageLexicon,
 	showPackage,

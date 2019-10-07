@@ -1,6 +1,6 @@
-import { documentActions } from '../actions/index'
+import { documentActions } from '../actions'
 import { put, takeEvery, call } from 'redux-saga/effects'
-import { documentApi } from '../../api/index'
+import { documentApi } from '../../api'
 import fileDownload from 'js-file-download'
 
 export function* getDocuments({ query }) {

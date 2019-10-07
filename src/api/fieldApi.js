@@ -1,7 +1,7 @@
 import axios from 'axios'
 import config from '../config'
 
-export const fieldApi = {
+export default {
 	getFields,
 	createField,
 	updateField,

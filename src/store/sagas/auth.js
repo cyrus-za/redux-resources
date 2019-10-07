@@ -1,6 +1,6 @@
-import { accountActions, authActions, notificationActions } from '../actions/index'
+import { accountActions, authActions, notificationActions } from '../actions'
 import { put, takeEvery, call, select } from 'redux-saga/effects'
-import { oauthApi, userApi } from '../../api/index'
+import { oauthApi, userApi } from '../../api'
 import { getAccounts, getDefaultAccount } from './accounts'
 import { authUser } from '../selectors'
 

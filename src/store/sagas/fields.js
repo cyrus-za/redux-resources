@@ -1,6 +1,6 @@
-import { fieldActions } from '../actions/index'
+import { fieldActions } from '../actions'
 import { put, takeEvery, call } from 'redux-saga/effects'
-import { fieldApi } from '../../api/index'
+import { fieldApi } from '../../api'
 
 export function* getFields({ packageId, query = {}, successCb, errorCb }) {
 	try {

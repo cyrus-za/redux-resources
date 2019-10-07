@@ -1,6 +1,6 @@
-import { authActions, notificationActions } from '../actions/index'
+import { authActions, notificationActions } from '../actions'
 import { put, takeEvery, call } from 'redux-saga/effects'
-import { notificationApi } from '../../api/index'
+import { notificationApi } from '../../api'
 
 function* userConfirmedEmailEvent({ payload }) {
 	yield put(authActions.authMetaFulfilled(payload))

@@ -1,6 +1,6 @@
-import { notificationActions, feedbackActions } from '../actions/index'
+import { notificationActions, feedbackActions } from '../actions'
 import { put, takeEvery, call } from 'redux-saga/effects'
-import { feedbackApi } from '../../api/index'
+import { feedbackApi } from '../../api'
 
 function* sendFeedback({ payload, successCb, errorCb }) {
 	try {

@@ -1,6 +1,6 @@
-import { packageActions, notificationActions } from '../actions/index'
+import { packageActions, notificationActions } from '../actions'
 import { put, takeEvery, call } from 'redux-saga/effects'
-import { packageApi } from '../../api/index'
+import { packageApi } from '../../api'
 import fileDownload from 'js-file-download'
 
 function* getPackages({ query, successCb, errorCb }) {

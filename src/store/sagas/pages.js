@@ -1,6 +1,6 @@
-import { pageActions } from '../actions/index'
+import { pageActions } from '../actions'
 import { put, takeEvery, call } from 'redux-saga/effects'
-import { pageApi } from '../../api/index'
+import { pageApi } from '../../api'
 
 export function* getPages({ packageId, documentId, successCb, errorCb }) {
 	try {

@@ -1,6 +1,6 @@
-import { contactActions } from '../actions/index'
+import { contactActions } from '../actions'
 import { put, takeEvery, call } from 'redux-saga/effects'
-import { contactApi } from '../../api/index'
+import { contactApi } from '../../api'
 
 function* searchContacts({ payload, successCb, errorCb }) {
 	try {

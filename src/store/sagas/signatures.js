@@ -1,6 +1,6 @@
-import { signatureActions } from '../actions/index'
+import { signatureActions } from '../actions'
 import { put, takeEvery, call } from 'redux-saga/effects'
-import { signatureApi } from '../../api/index'
+import { signatureApi } from '../../api'
 
 function* getSignatures() {
 	try {

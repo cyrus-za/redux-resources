@@ -20,7 +20,7 @@ const types = {
 	SET_DELETE_SUBSCRIPTION_REJECTED: '[subscriptions] SET_DELETE_SUBSCRIPTION_REJECTED',
 }
 
-export const subscriptionActions = {
+export default {
 	...types,
 	getSubscriptions: (query = {}) => ({
 		type: types.GET_SUBSCRIPTIONS,
