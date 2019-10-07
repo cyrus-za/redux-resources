@@ -7,7 +7,7 @@ const types = {
 
 export const feedbackActions = {
 	...types,
-	sendFeedback: (payload, successCb, errorCb) => ({
+	sendFeedback: (payload, successCb = undefined, errorCb = undefined) => ({
 		type: types.SEND_FEEDBACK,
 		payload,
 		successCb,

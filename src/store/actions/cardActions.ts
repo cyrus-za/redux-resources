@@ -60,7 +60,7 @@ export const cardActions = {
 		payload: response,
 	}),
 
-	createCard: (card, successCb, errorCb) => ({
+	createCard: (card, successCb = undefined, errorCb = undefined) => ({
 		type: types.CREATE_CARD,
 		payload: null,
 		card,
@@ -106,7 +106,7 @@ export const cardActions = {
 		payload: response,
 	}),
 
-	updateCard: (id, card, successCb, errorCb) => ({
+	updateCard: (id, card, successCb = undefined, errorCb = undefined) => ({
 		type: types.UPDATE_CARD,
 		payload: null,
 		id,
@@ -131,7 +131,7 @@ export const cardActions = {
 		payload: response,
 	}),
 
-	deleteCard: (card, successCb, errorCb) => ({
+	deleteCard: (card, successCb = undefined, errorCb = undefined) => ({
 		type: types.DELETE_CARD,
 		payload: null,
 		card,

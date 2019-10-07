@@ -40,7 +40,7 @@ export const folderActions = {
 		payload: response,
 	}),
 
-	createFolder: (data, successCb, errorCb) => ({
+	createFolder: (data, successCb = undefined, errorCb = undefined) => ({
 		type: types.CREATE_FOLDER,
 		payload: null,
 		data,

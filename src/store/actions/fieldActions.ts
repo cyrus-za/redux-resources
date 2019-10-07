@@ -16,7 +16,7 @@ const types = {
 
 export const fieldActions = {
 	...types,
-	getFields: (packageId, query = {}, successCb, errorCb) => ({
+	getFields: (packageId, query = {}, successCb = undefined, errorCb = undefined) => ({
 		type: types.GET_FIELDS,
 		payload: null,
 		packageId,
@@ -41,7 +41,7 @@ export const fieldActions = {
 		payload: response,
 	}),
 
-	createField: (packageId, documentId, data, successCb, errorCb) => ({
+	createField: (packageId, documentId, data, successCb = undefined, errorCb = undefined) => ({
 		type: types.CREATE_FIELD,
 		payload: null,
 		packageId,
@@ -50,7 +50,7 @@ export const fieldActions = {
 		successCb,
 		errorCb,
 	}),
-	updateField: (packageId, documentId, fieldId, data, successCb, errorCb) => ({
+	updateField: (packageId, documentId, fieldId, data, successCb = undefined, errorCb = undefined) => ({
 		type: types.UPDATE_FIELD,
 		payload: null,
 		packageId,
@@ -60,7 +60,7 @@ export const fieldActions = {
 		successCb,
 		errorCb,
 	}),
-	deleteField: (packageId, documentId, fieldId, successCb, errorCb) => ({
+	deleteField: (packageId, documentId, fieldId, successCb = undefined, errorCb = undefined) => ({
 		type: types.DELETE_FIELD,
 		payload: null,
 		packageId,

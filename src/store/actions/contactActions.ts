@@ -7,7 +7,7 @@ const types = {
 
 export const contactActions = {
 	...types,
-	searchContacts: (payload, successCb, errorCb) => ({
+	searchContacts: (payload, successCb = undefined, errorCb = undefined) => ({
 		type: types.SEARCH_CONTACTS,
 		payload,
 		successCb,

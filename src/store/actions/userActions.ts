@@ -32,7 +32,7 @@ const types = {
 
 export const userActions = {
 	...types,
-	updatePassword: (id, payload, successCb, errorCb) => ({
+	updatePassword: (id, payload, successCb = undefined, errorCb = undefined) => ({
 		type: types.UPDATE_PASSWORD,
 		payload: payload,
 		id,
@@ -56,7 +56,7 @@ export const userActions = {
 		payload: response,
 	}),
 
-	confirmEmail: (token, successCb, errorCb) => ({
+	confirmEmail: (token, successCb = undefined, errorCb = undefined) => ({
 		type: types.CONFIRM_EMAIL,
 		payload: null,
 		token,

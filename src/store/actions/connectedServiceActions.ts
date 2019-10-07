@@ -51,7 +51,7 @@ export const connectedServiceActions = {
 		payload: response,
 	}),
 
-	createConnectedService: (data, successCb, errorCb) => ({
+	createConnectedService: (data, successCb = undefined, errorCb = undefined) => ({
 		type: types.CREATE_CONNECTED_SERVICE,
 		payload: null,
 		data,
@@ -75,7 +75,7 @@ export const connectedServiceActions = {
 		payload: response,
 	}),
 
-	updateConnectedService: (id, data, successCb, errorCb) => ({
+	updateConnectedService: (id, data, successCb = undefined, errorCb = undefined) => ({
 		type: types.UPDATE_CONNECTED_SERVICE,
 		payload: null,
 		id,
@@ -100,7 +100,7 @@ export const connectedServiceActions = {
 		payload: response,
 	}),
 
-	deleteConnectedService: (id, scopes = undefined, successCb, errorCb) => ({
+	deleteConnectedService: (id, scopes = undefined, successCb = undefined, errorCb = undefined) => ({
 		type: types.DELETE_CONNECTED_SERVICE,
 		payload: null,
 		id,

@@ -90,7 +90,7 @@ export const accountActions = {
 		payload: response,
 	}),
 
-	updateAccount: (account, data, successCb, errorCb) => ({
+	updateAccount: (account, data, successCb = undefined, errorCb = undefined) => ({
 		type: types.UPDATE_ACCOUNT,
 		payload: null,
 		account,
@@ -201,7 +201,7 @@ export const accountActions = {
 		payload: response,
 	}),
 
-	createAccount: (account, successCb, errorCb) => ({
+	createAccount: (account, successCb = undefined, errorCb = undefined) => ({
 		type: types.CREATE_ACCOUNT,
 		payload: null,
 		account,
@@ -225,7 +225,7 @@ export const accountActions = {
 		payload: response,
 	}),
 
-	deleteAccountMember: (account, member, successCb, errorCb) => ({
+	deleteAccountMember: (account, member, successCb = undefined, errorCb = undefined) => ({
 		type: types.DELETE_ACCOUNT_MEMBER,
 		payload: null,
 		account,
@@ -250,7 +250,7 @@ export const accountActions = {
 		payload: response,
 	}),
 
-	updateAccountMember: (account, member, data, successCb, errorCb) => ({
+	updateAccountMember: (account, member, data, successCb = undefined, errorCb = undefined) => ({
 		type: types.UPDATE_ACCOUNT_MEMBER,
 		payload: null,
 		account,
@@ -276,7 +276,7 @@ export const accountActions = {
 		payload: response,
 	}),
 
-	updateAccountPhoto: (id, data, successCb, errorCb) => ({
+	updateAccountPhoto: (id, data, successCb = undefined, errorCb = undefined) => ({
 		type: types.UPDATE_ACCOUNT_PHOTO,
 		payload: data,
 		id,

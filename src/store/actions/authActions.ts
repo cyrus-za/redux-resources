@@ -169,7 +169,7 @@ export const authActions = {
 		payload: response,
 	}),
 
-	updateAuthPhoto: (id, data, successCb, errorCb) => ({
+	updateAuthPhoto: (id, data, successCb = undefined, errorCb = undefined) => ({
 		type: types.UPDATE_AUTH_PHOTO,
 		payload: data,
 		id,

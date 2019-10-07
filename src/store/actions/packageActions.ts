@@ -116,7 +116,7 @@ const types = {
 
 export const packageActions = {
 	...types,
-	getPackages: (query = {}, successCb, errorCb) => ({
+	getPackages: (query = {}, successCb = undefined, errorCb = undefined) => ({
 		type: types.GET_PACKAGES,
 		payload: null,
 		query,
@@ -140,7 +140,7 @@ export const packageActions = {
 		payload: response,
 	}),
 
-	getPackageLexicon: (query = {}, successCb, errorCb) => ({
+	getPackageLexicon: (query = {}, successCb = undefined, errorCb = undefined) => ({
 		type: types.GET_PACKAGE_LEXICON,
 		payload: null,
 		query,
@@ -164,7 +164,7 @@ export const packageActions = {
 		payload: response,
 	}),
 
-	createPackage: (data, successCb, errorCb) => ({
+	createPackage: (data, successCb = undefined, errorCb = undefined) => ({
 		type: types.CREATE_PACKAGE,
 		payload: null,
 		data,
@@ -188,7 +188,7 @@ export const packageActions = {
 		payload: response,
 	}),
 
-	showPackage: (id, successCb, errorCb) => ({
+	showPackage: (id, successCb = undefined, errorCb = undefined) => ({
 		type: types.SHOW_PACKAGE,
 		payload: null,
 		id,
@@ -212,7 +212,7 @@ export const packageActions = {
 		payload: response,
 	}),
 
-	updatePackage: (id, data, successCb, errorCb) => ({
+	updatePackage: (id, data, successCb = undefined, errorCb = undefined) => ({
 		type: types.UPDATE_PACKAGE,
 		payload: null,
 		id,
@@ -237,7 +237,7 @@ export const packageActions = {
 		payload: response,
 	}),
 
-	deletePackage: (id, successCb, errorCb) => ({
+	deletePackage: (id, successCb = undefined, errorCb = undefined) => ({
 		type: types.DELETE_PACKAGE,
 		payload: null,
 		id,
@@ -261,7 +261,7 @@ export const packageActions = {
 		payload: response,
 	}),
 
-	getPackageRecipients: (id, query = {}, successCb, errorCb) => ({
+	getPackageRecipients: (id, query = {}, successCb = undefined, errorCb = undefined) => ({
 		type: types.GET_PACKAGE_RECIPIENTS,
 		payload: null,
 		id,
@@ -286,7 +286,7 @@ export const packageActions = {
 		payload: response,
 	}),
 
-	createPackageRecipient: (id, data, successCb, errorCb) => ({
+	createPackageRecipient: (id, data, successCb = undefined, errorCb = undefined) => ({
 		type: types.CREATE_PACKAGE_RECIPIENT,
 		payload: null,
 		id,
@@ -311,7 +311,7 @@ export const packageActions = {
 		payload: response,
 	}),
 
-	updatePackageRecipient: (id, recipientId, data, successCb, errorCb) => ({
+	updatePackageRecipient: (id, recipientId, data, successCb = undefined, errorCb = undefined) => ({
 		type: types.UPDATE_PACKAGE_RECIPIENT,
 		payload: null,
 		id,
@@ -337,7 +337,7 @@ export const packageActions = {
 		payload: response,
 	}),
 
-	deletePackageRecipient: (id, recipientId, successCb, errorCb) => ({
+	deletePackageRecipient: (id, recipientId, successCb = undefined, errorCb = undefined) => ({
 		type: types.DELETE_PACKAGE_RECIPIENT,
 		payload: null,
 		id,
@@ -353,7 +353,7 @@ export const packageActions = {
 		type: types.DELETE_PACKAGE_RECIPIENT_LOADING,
 		payload: null,
 	}),
-	deletePackageRecipientFulfilled: (response) => ({
+	deletePackageRecipientFulfilled: (response = undefined) => ({
 		type: types.DELETE_PACKAGE_RECIPIENT_FULFILLED,
 		payload: response,
 	}),
@@ -362,7 +362,7 @@ export const packageActions = {
 		payload: response,
 	}),
 
-	getPackageDocuments: (id, query = {}, successCb, errorCb) => ({
+	getPackageDocuments: (id, query = {}, successCb = undefined, errorCb = undefined) => ({
 		type: types.GET_PACKAGE_DOCUMENTS,
 		payload: null,
 		id,
@@ -387,7 +387,7 @@ export const packageActions = {
 		payload: response,
 	}),
 
-	createPackageDocuments: (id, data, successCb, errorCb) => ({
+	createPackageDocuments: (id, data, successCb = undefined, errorCb = undefined) => ({
 		type: types.CREATE_PACKAGE_DOCUMENTS,
 		payload: null,
 		id,
@@ -411,7 +411,7 @@ export const packageActions = {
 		type: types.CREATE_PACKAGE_DOCUMENTS_REJECTED,
 		payload: response,
 	}),
-	updateDocument: (packageId, documentId, data, successCb, errorCb) => ({
+	updateDocument: (packageId, documentId, data, successCb = undefined, errorCb = undefined) => ({
 		type: types.UPDATE_DOCUMENT,
 		payload: null,
 		packageId,
@@ -438,7 +438,7 @@ export const packageActions = {
 		payload: response,
 	}),
 
-	createDocumentFromSocialAccount: (id, socialAccountId, externalFileId, successCb, errorCb) => ({
+	createDocumentFromSocialAccount: (id, socialAccountId, externalFileId, successCb = undefined, errorCb = undefined) => ({
 		type: types.CREATE_DOCUMENT_FROM_CONNECTED_SERVICE,
 		payload: null,
 		id,
@@ -464,7 +464,7 @@ export const packageActions = {
 		payload: response,
 	}),
 
-	downloadPackageDocument: (id, documentId, successCb, errorCb) => ({
+	downloadPackageDocument: (id, documentId, successCb = undefined, errorCb = undefined) => ({
 		type: types.DOWNLOAD_PACKAGE_DOCUMENT,
 		payload: null,
 		id,
@@ -473,7 +473,7 @@ export const packageActions = {
 		errorCb,
 	}),
 
-	getPackageImageUrl: (id, image_url, successCb, errorCb) => ({
+	getPackageImageUrl: (id, image_url, successCb = undefined, errorCb = undefined) => ({
 		type: types.GET_PACKAGE_IMAGE_URL,
 		payload: null,
 		id,
@@ -490,7 +490,7 @@ export const packageActions = {
 		imageUrl,
 	}),
 
-	getDocumentImageUrl: (documentId, image_url, successCb, errorCb) => ({
+	getDocumentImageUrl: (documentId, image_url, successCb = undefined, errorCb = undefined) => ({
 		type: types.GET_DOCUMENT_IMAGE_URL,
 		payload: null,
 		documentId,
@@ -506,7 +506,7 @@ export const packageActions = {
 		imageUrl,
 	}),
 
-	getDocumentPageImageUrl: (documentId, pageId, image_url, successCb, errorCb) => ({
+	getDocumentPageImageUrl: (documentId, pageId, image_url, successCb = undefined, errorCb = undefined) => ({
 		type: types.GET_DOCUMENT_PAGE_IMAGE_URL,
 		payload: null,
 		documentId,
@@ -524,7 +524,7 @@ export const packageActions = {
 		imageUrl,
 	}),
 
-	deleteDocument: (id, documentId, successCb, errorCb) => ({
+	deleteDocument: (id, documentId, successCb = undefined, errorCb = undefined) => ({
 		type: types.DELETE_DOCUMENT,
 		payload: null,
 		id,
@@ -549,7 +549,7 @@ export const packageActions = {
 		payload: response,
 	}),
 
-	getPages: (packageId, query = {}, successCb, errorCb) => ({
+	getPages: (packageId, query = {}, successCb = undefined, errorCb = undefined) => ({
 		type: types.GET_PAGES,
 		payload: null,
 		packageId,
@@ -574,7 +574,7 @@ export const packageActions = {
 		payload: response,
 	}),
 
-	publish: (packageId, successCb, errorCb) => ({
+	publish: (packageId, successCb = undefined, errorCb = undefined) => ({
 		type: types.PUBLISH,
 		payload: null,
 		packageId,
