@@ -37,7 +37,7 @@ export function* downloadDocument({ document, preview }) {
 	}
 }
 
-export function* previewDocument({ document }: any) {
+export function* previewDocument({ document }) {
 	try {
 		yield put(documentActions.downloadDocumentLoading())
 		const downloadResponse = yield call(documentApi.downloadDocument, document.id, document.provider)

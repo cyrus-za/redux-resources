@@ -47,7 +47,7 @@ export function* showAccount({ id }) {
 	}
 }
 
-export function* getAccountUsers({ id }: any) {
+export function* getAccountUsers({ id }) {
 	try {
 		yield put(accountActions.accountUsersInitialState())
 		yield put(accountActions.accountUsersLoading())

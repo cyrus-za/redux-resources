@@ -2,7 +2,7 @@ import { cardActions, notificationActions } from '../actions'
 import { put, takeEvery, call } from 'redux-saga/effects'
 import { cardApi } from '../../api'
 
-function* getCards({ query }: any) {
+function* getCards({ query }) {
 	try {
 		yield put(cardActions.getCardsInitialState())
 		yield put(cardActions.getCardsLoading())
