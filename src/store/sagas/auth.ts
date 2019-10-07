@@ -2,8 +2,6 @@ import { accountActions, authActions, notificationActions } from '../actions'
 import { put, takeEvery, call, select } from 'redux-saga/effects'
 import { oauthApi, userApi } from '../../api'
 import { getAccounts, getDefaultAccount } from './accounts'
-
-import { connectToNotificationService, subscribeToUserEvents } from './notifications'
 import { authUser } from '../selectors'
 import { AnyAction } from 'redux'
 
@@ -119,8 +117,6 @@ export function* loginSaga() {
 	yield takeEvery(authActions.CREATE_AUTH_ACCESS_TOKEN_FULFILLED, getDefaultAccount)
 	yield takeEvery(authActions.CREATE_AUTH_ACCESS_TOKEN_FULFILLED, getAuthUser)
 	yield takeEvery(authActions.AUTH_USER_LOADED, getAuthMeta)
-	yield takeEvery(authActions.AUTH_USER_LOADED, connectToNotificationService)
-	yield takeEvery(authActions.AUTH_USER_LOADED, subscribeToUserEvents)
 }
 
 export function* logoutSaga() {

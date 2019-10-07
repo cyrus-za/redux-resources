@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": false,
   "dependencies": {
+    "axios": "^0.18.0",
     "immutable": "^3.8.2",
     "js-file-download": "^0.4.5",
     "lodash": "^4.17.15",
