@@ -12,7 +12,7 @@ function getPages(packageId, documentId) {
 		method: 'GET',
 		params: {
 			per_page: 1000,
-		}
+		},
 	})
 }
 
