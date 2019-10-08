@@ -1,5 +1,5 @@
 import { fromJS } from 'immutable'
-import { userActions } from '../actions/index'
+import { userActions } from '../actions'
 import stateUtility from '../../utilities/stateUtility'
 
 const initialState = fromJS({

@@ -1,42 +1,41 @@
 import { fromJS } from 'immutable'
-import { documentActions } from '../actions/index'
+import { fieldActions } from '../actions'
 import stateUtility from '../../utilities/stateUtility'
 
 const initialState = fromJS({
 	list: stateUtility.getPaginationInitialState(),
-	download: stateUtility.getObserverInitialState(),
+	item: stateUtility.getItemInitialState(),
 })
 
 export default (state = initialState, action) => {
 	switch (action.type) {
 		//  list
-		case documentActions.GET_DOCUMENTS_LOADING:
+		case fieldActions.GET_FIELDS_LOADING:
 			return state.merge({
 				list: stateUtility.getPaginationLoading(),
 			})
-		case documentActions.GET_DOCUMENTS_FULFILLED:
+		case fieldActions.GET_FIELDS_FULFILLED:
 			return state.merge({
 				list: stateUtility.getPaginationFulfilled(action.payload.data),
 			})
-		case documentActions.GET_DOCUMENTS_REJECTED:
+		case fieldActions.GET_FIELDS_REJECTED:
 			return state.merge({
 				list: stateUtility.getPaginationRejected(action.payload),
 			})
 
-		//	download
-		case documentActions.DOWNLOAD_DOCUMENT_LOADING:
+		//  item
+		case fieldActions.SET_ITEM_LOADING:
 			return state.merge({
-				download: stateUtility.getObserverLoading(),
+				item: stateUtility.getItemLoading(),
 			})
-		case documentActions.DOWNLOAD_DOCUMENT_FULFILLED:
+		case fieldActions.SET_ITEM_FULFILLED:
 			return state.merge({
-				download: stateUtility.getObserverFulfilled(),
+				item: stateUtility.getItemFulfilled(action.payload.data),
 			})
-		case documentActions.DOWNLOAD_DOCUMENT_REJECTED:
+		case fieldActions.SET_ITEM_REJECTED:
 			return state.merge({
-				download: stateUtility.getObserverRejected(action.payload),
+				item: stateUtility.getItemRejected(action.payload),
 			})
-
 		default:
 			return state
 	}

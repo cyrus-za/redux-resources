@@ -1,5 +1,5 @@
 import { fromJS } from 'immutable'
-import { folderActions } from '../actions/index'
+import { folderActions } from '../actions'
 import stateUtility from '../../utilities/stateUtility'
 
 const initialState = fromJS({

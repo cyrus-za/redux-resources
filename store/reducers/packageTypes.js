@@ -1,5 +1,5 @@
 import { fromJS } from 'immutable'
-import { fieldTypeActions } from '../actions/index'
+import { packageTypeActions } from '../actions'
 import stateUtility from '../../utilities/stateUtility'
 
 const initialState = fromJS({
@@ -9,15 +9,15 @@ const initialState = fromJS({
 export default (state = initialState, action) => {
 	//  list
 	switch (action.type) {
-		case fieldTypeActions.FIELD_TYPES_LOADING:
+		case packageTypeActions.PACKAGE_TYPES_LOADING:
 			return state.merge({
 				list: stateUtility.getPaginationLoading(),
 			})
-		case fieldTypeActions.FIELD_TYPES_FULFILLED:
+		case packageTypeActions.PACKAGE_TYPES_FULFILLED:
 			return state.merge({
 				list: stateUtility.getPaginationFulfilled(action.payload.data),
 			})
-		case fieldTypeActions.SET_FIELD_TYPES_REJECTED:
+		case packageTypeActions.SET_PACKAGE_TYPES_REJECTED:
 			return state.merge({
 				list: stateUtility.getPaginationRejected(action.payload),
 			})

@@ -1,5 +1,5 @@
 import { fromJS } from 'immutable'
-import { packageTypeActions } from '../actions/index'
+import { planActions } from '../actions'
 import stateUtility from '../../utilities/stateUtility'
 
 const initialState = fromJS({
@@ -9,15 +9,21 @@ const initialState = fromJS({
 export default (state = initialState, action) => {
 	//  list
 	switch (action.type) {
-		case packageTypeActions.PACKAGE_TYPES_LOADING:
+		//  list
+		case planActions.SET_PLANS_INITIAL_STATE:
+			return state.merge({
+				list: stateUtility.getPaginationInitialState(),
+			})
+		case planActions.SET_PLANS_LOADING:
 			return state.merge({
 				list: stateUtility.getPaginationLoading(),
 			})
-		case packageTypeActions.PACKAGE_TYPES_FULFILLED:
+		case planActions.SET_PLANS_FULFILLED:
+			const listResponse = action.payload.data
 			return state.merge({
-				list: stateUtility.getPaginationFulfilled(action.payload.data),
+				list: stateUtility.getPaginationFulfilled(listResponse),
 			})
-		case packageTypeActions.SET_PACKAGE_TYPES_REJECTED:
+		case planActions.SET_PLANS_REJECTED:
 			return state.merge({
 				list: stateUtility.getPaginationRejected(action.payload),
 			})
