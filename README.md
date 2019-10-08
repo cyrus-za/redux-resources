@@ -1,3 +1,4 @@
+![npm bundle size](https://img.shields.io/bundlephobia/min/npm)
 # redux-resources
 A complete redux state management, axios based API wrappers, and redux-saga implementation for communicating with the ApproveMe API
 
@@ -15,3 +16,4 @@ Add the following to the .env
 ```sh
 REACT_APP_API_BASE_URL=http://api.approveme.com
 ```
+

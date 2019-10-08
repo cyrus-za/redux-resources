@@ -1,6 +1,6 @@
 {
-  "name": "redux-resources",
-  "version": "0.1.0",
+  "name": "@approveme/redux-resources",
+  "version": "1.0.0",
   "scripts": {
     "prettier": "prettier  --write 'src/**/*.{ts,tsx,js,jsx,json,css}'"
   },
