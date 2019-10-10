@@ -1,11 +1,4 @@
-import {
-	PaginatedResponse,
-	PaginatedApiResponse,
-	Item,
-	Observer
-} from '../types/api'
-
-const getPaginationFromLocalStorage = (name: string): PaginatedResponse => {
+const getPaginationFromLocalStorage = (name) => {
 	const value = window.localStorage.getItem(name)
 	if (value === null) {
 		return getPaginationInitialState()
@@ -15,7 +8,7 @@ const getPaginationFromLocalStorage = (name: string): PaginatedResponse => {
 	}
 }
 
-const getPaginationInitialState = (): PaginatedResponse => {
+const getPaginationInitialState = () => {
 	return {
 		ui: {
 			loaded: false,
@@ -23,37 +16,27 @@ const getPaginationInitialState = (): PaginatedResponse => {
 		},
 		meta: {
 			total: 0,
-			per_page: 0,
-			current_page: 0,
-			last_page: 0,
-			from: 0,
-			to: 0,
 		},
 		data: [],
 		error: null,
 	}
 }
 
-const getPaginationLoading = (): PaginatedResponse => {
+const getPaginationLoading = () => {
 	return {
 		ui: {
 			loaded: false,
 			loading: true,
 		},
-        meta: {
-            total: 0,
-            per_page: 0,
-            current_page: 0,
-            last_page: 0,
-            from: 0,
-            to: 0,
-        },
+		meta: {
+			total: 0,
+		},
 		data: [],
 		error: null,
 	}
 }
 
-const getPaginationFulfilled = (data: PaginatedApiResponse): PaginatedResponse => {
+const getPaginationFulfilled = (data) => {
 	return {
 		ui: {
 			loaded: true,
@@ -72,7 +55,7 @@ const getPaginationFulfilled = (data: PaginatedApiResponse): PaginatedResponse =
 	}
 }
 
-const addItemToPagination = (list: PaginatedResponse, data: Array<object>, prepend = true): PaginatedResponse => {
+const addItemToPagination = (list, data, prepend = true) => {
 	return {
 		ui: {
 			loaded: true,
@@ -91,7 +74,7 @@ const addItemToPagination = (list: PaginatedResponse, data: Array<object>, prepe
 	}
 }
 
-const removeItemFromPagination = (list: PaginatedResponse, resourceId: string): PaginatedResponse => {
+const removeItemFromPagination = (list, resourceId) => {
 	return {
 		ui: {
 			loaded: true,
@@ -110,26 +93,21 @@ const removeItemFromPagination = (list: PaginatedResponse, resourceId: string): 
 	}
 }
 
-const getPaginationRejected = (error: any): PaginatedResponse => {
+const getPaginationRejected = (error) => {
 	return {
 		ui: {
 			loaded: false,
 			loading: false,
 		},
 		meta: {
-            total: 0,
-            per_page: 0,
-            current_page: 0,
-            last_page: 0,
-            from: 0,
-            to: 0,
+			total: 0,
 		},
 		data: [],
 		error: error,
 	}
 }
 
-const getStringFromLocalStorage = (name: string): Item => {
+const getStringFromLocalStorage = (name) => {
 	const value = window.localStorage.getItem(name)
 	if (value === null) {
 		return getItemInitialState()
@@ -138,7 +116,7 @@ const getStringFromLocalStorage = (name: string): Item => {
 	}
 }
 
-const getItemFromLocalStorage = (name: string): Item => {
+const getItemFromLocalStorage = (name) => {
 	const value = window.localStorage.getItem(name)
 	if (value === null) {
 		return getItemInitialState()
@@ -147,7 +125,7 @@ const getItemFromLocalStorage = (name: string): Item => {
 		return getItemFulfilled(parsed)
 	}
 }
-const getItemInitialState = (data = null): Item => {
+const getItemInitialState = (data = null) => {
 	return {
 		ui: {
 			loaded: false,
@@ -158,7 +136,7 @@ const getItemInitialState = (data = null): Item => {
 	}
 }
 
-const getItemLoading = (data = null): Item => {
+const getItemLoading = (data = null) => {
 	return {
 		ui: {
 			loaded: false,
@@ -169,7 +147,7 @@ const getItemLoading = (data = null): Item => {
 	}
 }
 
-const getItemFulfilled = (data = {}): Item => {
+const getItemFulfilled = (data = {}) => {
 	return {
 		ui: {
 			loaded: true,
@@ -180,7 +158,7 @@ const getItemFulfilled = (data = {}): Item => {
 	}
 }
 
-const getItemRejected = (error: any, data = null): Item => {
+const getItemRejected = (error, data = null) => {
 	return {
 		ui: {
 			loaded: true,
@@ -191,7 +169,7 @@ const getItemRejected = (error: any, data = null): Item => {
 	}
 }
 
-const getObserverInitialState = (): Observer => {
+const getObserverInitialState = () => {
 	return {
 		ui: {
 			loaded: false,
@@ -201,7 +179,7 @@ const getObserverInitialState = (): Observer => {
 	}
 }
 
-const getObserverLoading = (): Observer => {
+const getObserverLoading = () => {
 	return {
 		ui: {
 			loaded: false,
@@ -211,7 +189,7 @@ const getObserverLoading = (): Observer => {
 	}
 }
 
-const getObserverFulfilled = (): Observer => {
+const getObserverFulfilled = () => {
 	return {
 		ui: {
 			loaded: true,
@@ -221,7 +199,7 @@ const getObserverFulfilled = (): Observer => {
 	}
 }
 
-const getObserverRejected = (error: any): Observer => {
+const getObserverRejected = (error) => {
 	return {
 		ui: {
 			loaded: true,
