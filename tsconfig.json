@@ -1,3 +1,4 @@
+
 {
   "compilerOptions": {
     "sourceMap": true,
@@ -12,7 +13,8 @@
     "noUnusedLocals": true,
     "strict": true,
     "outDir": "build",
-    "lib": ["es6", "es7", "dom"]
+    "lib": ["es6", "es7", "dom"],
+    "baseUrl": "./"
   },
   "exclude": ["build", "node_modules"]
 }
