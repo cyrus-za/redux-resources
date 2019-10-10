@@ -15,6 +15,7 @@
     "@types/react-dom": "^16.9.1",
     "@types/react-redux": "^7.1.4",
     "prettier": "^1.18.2",
+    "ts-loader": "^6.2.0",
     "typescript": "^3.6.4",
     "yarn": "^1.16.0"
   },
