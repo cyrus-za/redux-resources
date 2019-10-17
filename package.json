@@ -1,36 +1,53 @@
 {
-  "name": "@approveme/redux-resources",
-  "version": "1.0.3",
-  "scripts": {
-    "prettier": "prettier  --write '/**/*.{ts,tsx,js,jsx,json,css}'"
-  },
-  "private": false,
-  "dependencies": {
-    "js-file-download": "^0.4.5"
-  },
-  "devDependencies": {
-    "@types/jest": "^24.0.18",
-    "@types/node": "^12.7.12",
-    "@types/react": "^16.9.5",
-    "@types/react-dom": "^16.9.1",
-    "@types/react-redux": "^7.1.4",
-    "prettier": "^1.18.2",
-    "ts-loader": "^6.2.0",
-    "typescript": "^3.6.4",
-    "yarn": "^1.16.0"
-  },
-  "engines": {
-    "node": ">=11.0.0 <12.0.0",
-    "yarn": "^1.9.0"
-  },
-  "peerDependencies": {
-    "axios": "^0.19.0",
-    "immutable": "^3.8.2",
-    "lodash": "^4.17.15",
-    "react": "^16.8.6",
-    "react-redux": "^7.1.1",
-    "redux": "^4.0.1",
-    "redux-saga": "^1.1.1",
-    "reselect": "^4.0.0"
-  }
+	"name": "@approveme/redux-resources",
+	"version": "1.0.4",
+	"files": [
+		"lib/**/*"
+	],
+	"main": "lib/index.js",
+	"types": "lib/index.d.ts",
+	"keywords": [
+		"redux",
+		"approveme"
+	],
+	"author": "@approveme",
+	"scripts": {
+		"build": "tsc",
+		"postversion": "git push && git push --tags",
+		"prepare": "yarn build",
+		"prepublishOnly": "yarn run prettier",
+		"prettier": "prettier  --write './**/*.{ts,tsx,js,jsx,css}'",
+		"preversion": "yarn run prettier",
+		"version": "yarn run prettier && git add -A src"
+	},
+	"private": false,
+	"dependencies": {
+		"immutable": "^4.0.0-rc.12",
+		"js-file-download": "^0.4.5"
+	},
+	"devDependencies": {
+		"@types/jest": "^24.0.18",
+		"@types/node": "^12.7.12",
+		"@types/react": "^16.9.9",
+		"@types/react-dom": "^16.9.1",
+		"@types/react-redux": "^7.1.4",
+		"prettier": "^1.18.2",
+		"ts-loader": "^6.2.0",
+		"typescript": "^3.6.4",
+		"yarn": "^1.19.1"
+	},
+	"engines": {
+		"node": ">=11.0.0 <12.0.0",
+		"yarn": "^1.9.0"
+	},
+	"peerDependencies": {
+		"axios": "^0.19.0",
+		"immutable": "^3.8.2",
+		"lodash": "^4.17.15",
+		"react": "^16.9.9",
+		"react-redux": "^7.1.1",
+		"redux": "^4.0.1",
+		"redux-saga": "^1.1.1",
+		"reselect": "^4.0.0"
+	}
 }
