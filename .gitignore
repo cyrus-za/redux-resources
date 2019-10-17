@@ -1,6 +1,7 @@
 # dependencies
 /node_modules
 /package-lock.json
+/lib
 
 # misc
 .DS_Store
@@ -12,3 +13,4 @@ yarn-error.log*
 /.idea
 /.idea/codeStyles/
 /tmp
+.history
