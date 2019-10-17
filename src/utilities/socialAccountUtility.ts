@@ -1,4 +1,4 @@
-import config from '../config/index'
+import config from '../config'
 
 export const parseApiResponse = (list) => {
 	const googleAuth = getParsedObject(list, 'google', config.google.scopes.authentication)

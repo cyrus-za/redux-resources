@@ -1,9 +1,8 @@
 import axios from 'axios'
 import config from '../config'
-import queryString from 'query-string'
 import { keysToSnakeCase } from '../utilities/helpers'
 
-export const packageApi = {
+export default {
 	getPackages,
 	getPackageLexicon,
 	showPackage,
@@ -28,15 +27,17 @@ export const packageApi = {
 
 function getPackages(query) {
 	return axios({
-		url: `${config.apiBase}/packages?${queryString.stringify(query)}`,
+		url: `${config.apiBase}/packages`,
 		method: 'GET',
+		params: query,
 	})
 }
 
 function getPackageLexicon(query) {
 	return axios({
-		url: `${config.apiBase}/packages/lexicon?${queryString.stringify(query)}`,
+		url: `${config.apiBase}/packages/lexicon`,
 		method: 'GET',
+		params: query,
 	})
 }
 
@@ -72,8 +73,9 @@ function updatePackage(id, data) {
 
 function getRecipients(id, query = {}) {
 	return axios({
-		url: `${config.apiBase}/packages/${id}/recipients?${queryString.stringify(query)}`,
+		url: `${config.apiBase}/packages/${id}/recipients`,
 		method: 'GET',
+		params: query,
 	})
 }
 
@@ -95,8 +97,9 @@ function updateRecipient(id, recipientId, data) {
 
 function getDocuments(id, query = {}) {
 	return axios({
-		url: `${config.apiBase}/packages/${id}/documents?${queryString.stringify(query)}`,
+		url: `${config.apiBase}/packages/${id}/documents`,
 		method: 'GET',
+		params: query,
 	})
 }
 

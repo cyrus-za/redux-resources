@@ -1,12 +1,11 @@
 import axios from 'axios'
 import config from '../config'
-import { Feedback } from '../components/Feedback'
 
 export const feedbackApi = {
 	sendFeedback,
 }
 
-function sendFeedback(data: Feedback) {
+function sendFeedback(data) {
 	return axios({
 		url: `${config.apiBase}/feedback`,
 		method: 'POST',

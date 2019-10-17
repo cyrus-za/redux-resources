@@ -1,13 +1,8 @@
 import { accountActions, authActions, notificationActions } from '../actions'
 import { put, takeEvery, call, select } from 'redux-saga/effects'
-import { userApi } from '../../api/userApi'
-import { oauthApi } from '../../api/oauthApi'
+import { oauthApi, userApi } from '../../api'
 import { getAccounts, getDefaultAccount } from './accounts'
-
-import { connectToNotificationService, subscribeToUserEvents } from './notifications'
 import { authUser } from '../selectors'
-import routes from '../../router/routes'
-import { AnyAction } from 'redux'
 
 export function* getAuthUser() {
 	try {
@@ -27,7 +22,7 @@ export function* authUserInitialState() {
 	yield put(authActions.authUserNotLoaded())
 }
 
-export function* login({ user, provider = null, access_token = null, token_secret = null }: AnyAction) {
+export function* login({ user, provider = null, access_token = null, token_secret = null }: any) {
 	try {
 		yield put(authActions.createAccessTokenInitialState())
 		yield put(authActions.createAccessToken())
@@ -45,18 +40,15 @@ export function* login({ user, provider = null, access_token = null, token_secre
 	}
 }
 
-export function* logout({ history }: AnyAction) {
+export function* logout({}) {
 	//  auth
 	window.localStorage.removeItem('accessToken')
 	yield put(authActions.createAccessTokenInitialState())
-	history.push(routes.login.path)
 	window.localStorage.removeItem('userMeta')
 	yield put(authActions.authUserInitialState())
 	yield put(authActions.authMetaInitialState())
 
 	//  accounts
-	console.log('logout')
-
 	window.localStorage.removeItem('defaultAccount')
 	window.localStorage.removeItem('accountList')
 	yield put(accountActions.getDefaultAccountInitialState())
@@ -78,7 +70,7 @@ export function* getAuthMeta() {
 	}
 }
 
-export function* update({ id, user }: AnyAction) {
+export function* update({ id, user }: any) {
 	try {
 		yield put(authActions.updateAuthUserInitialState())
 		yield put(authActions.updateAuthUserLoading())
@@ -90,7 +82,7 @@ export function* update({ id, user }: AnyAction) {
 	}
 }
 
-export function* create({ user }: AnyAction) {
+export function* create({ user }: any) {
 	try {
 		yield put(authActions.createUserInitialState())
 		yield put(authActions.createUserLoading())
@@ -102,7 +94,7 @@ export function* create({ user }: AnyAction) {
 	}
 }
 
-function* updatePhoto({ id, payload, successCb, errorCb }: AnyAction) {
+function* updatePhoto({ id, payload, successCb, errorCb }: any) {
 	try {
 		yield put(authActions.updateAuthPhotoInitialState())
 		yield put(authActions.updateAuthPhotoLoading())
@@ -124,8 +116,6 @@ export function* loginSaga() {
 	yield takeEvery(authActions.CREATE_AUTH_ACCESS_TOKEN_FULFILLED, getDefaultAccount)
 	yield takeEvery(authActions.CREATE_AUTH_ACCESS_TOKEN_FULFILLED, getAuthUser)
 	yield takeEvery(authActions.AUTH_USER_LOADED, getAuthMeta)
-	yield takeEvery(authActions.AUTH_USER_LOADED, connectToNotificationService)
-	yield takeEvery(authActions.AUTH_USER_LOADED, subscribeToUserEvents)
 }
 
 export function* logoutSaga() {

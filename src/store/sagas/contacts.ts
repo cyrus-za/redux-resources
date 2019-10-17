@@ -1,11 +1,10 @@
 import { contactActions } from '../actions'
 import { put, takeEvery, call } from 'redux-saga/effects'
 import { contactApi } from '../../api/contactApi'
-import { Contact } from '../../components/PackageAddEdit/Steps/Recipients/types'
 
 interface Props {
-	payload: Partial<Contact>
-	successCb: (response: Contact[]) => void
+	payload
+	successCb: (response) => void
 	errorCb: (err: Error) => void
 }
 

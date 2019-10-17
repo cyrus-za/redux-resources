@@ -1,10 +1,9 @@
 import { notificationActions, feedbackActions } from '../actions'
 import { put, takeEvery, call } from 'redux-saga/effects'
 import { feedbackApi } from '../../api/feedbackApi'
-import { Feedback } from '../../components/Feedback'
 
 interface Props {
-	payload: Feedback
+	payload: any
 	successCb: VoidFunction
 	errorCb: VoidFunction
 }
