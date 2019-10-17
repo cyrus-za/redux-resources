@@ -15,8 +15,7 @@ const types = {
 	UPDATE_FOLDER_FULFILLED: '[folders] UPDATE_FOLDER_FULFILLED',
 	UPDATE_FOLDER_REJECTED: '[folders] UPDATE_FOLDER_REJECTED',
 }
-
-export default {
+export const folderActions = {
 	...types,
 	getFolders: (query = {}) => ({
 		type: types.GET_FOLDERS,
@@ -39,8 +38,7 @@ export default {
 		type: types.GET_FOLDERS_REJECTED,
 		payload: response,
 	}),
-
-	createFolder: (data, successCb = undefined, errorCb = undefined) => ({
+	createFolder: (data, successCb, errorCb) => ({
 		type: types.CREATE_FOLDER,
 		payload: null,
 		data,
@@ -63,7 +61,6 @@ export default {
 		type: types.CREATE_FOLDER_REJECTED,
 		payload: response,
 	}),
-
 	updateFolder: (id, data) => ({
 		type: types.UPDATE_FOLDER,
 		payload: null,

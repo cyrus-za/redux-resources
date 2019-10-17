@@ -4,10 +4,9 @@ const types = {
 	SET_SEND_FEEDBACK_FULFILLED: '[feedback] SET_SEND_FEEDBACK_FULFILLED',
 	SET_SEND_FEEDBACK_REJECTED: '[feedback] SET_SEND_FEEDBACK_REJECTED',
 }
-
-export default {
+export const feedbackActions = {
 	...types,
-	sendFeedback: (payload, successCb = undefined, errorCb = undefined) => ({
+	sendFeedback: (payload, successCb, errorCb) => ({
 		type: types.SEND_FEEDBACK,
 		payload,
 		successCb,

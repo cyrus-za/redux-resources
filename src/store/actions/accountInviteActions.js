@@ -26,8 +26,7 @@ const types = {
 	ACCEPT_ACCOUNT_INVITE_FULFILLED: '[account_invites] ACCEPT_ACCOUNT_INVITE_FULFILLED',
 	ACCEPT_ACCOUNT_INVITE_REJECTED: '[account_invites] ACCEPT_ACCOUNT_INVITE_REJECTED',
 }
-
-export default {
+export const accountInviteActions = {
 	...types,
 	getMyAccountInvites: () => ({
 		type: types.GET_MY_ACCOUNT_INVITES,
@@ -49,7 +48,6 @@ export default {
 		type: types.GET_MY_ACCOUNT_INVITES_REJECTED,
 		payload: response,
 	}),
-
 	getAccountInvites: (query) => ({
 		type: types.GET_ACCOUNT_INVITES,
 		payload: null,
@@ -71,14 +69,12 @@ export default {
 		type: types.GET_ACCOUNT_INVITES_REJECTED,
 		payload: response,
 	}),
-
 	deleteMyAccountInvite: (invite) => ({
 		type: types.DELETE_MY_ACCOUNT_INVITE,
 		payload: null,
 		invite,
 	}),
-
-	deleteAccountInvite: (invite, successCb = undefined, errorCb = undefined) => ({
+	deleteAccountInvite: (invite, successCb, errorCb) => ({
 		type: types.DELETE_ACCOUNT_INVITE,
 		payload: null,
 		invite,
@@ -101,8 +97,7 @@ export default {
 		type: types.DELETE_ACCOUNT_INVITE_REJECTED,
 		payload: response,
 	}),
-
-	createAccountInvite: (invite, successCb = undefined, errorCb = undefined) => ({
+	createAccountInvite: (invite, successCb, errorCb) => ({
 		type: types.CREATE_ACCOUNT_INVITE,
 		payload: null,
 		invite,
@@ -125,7 +120,6 @@ export default {
 		type: types.CREATE_ACCOUNT_INVITE_REJECTED,
 		payload: response,
 	}),
-
 	acceptAccountInvite: (invite) => ({
 		type: types.ACCEPT_ACCOUNT_INVITE,
 		payload: null,

@@ -3,14 +3,12 @@ const types = {
 	SIGNATURES_LOADING: '[signatures] SIGNATURES_LOADING',
 	SIGNATURES_FULFILLED: '[signatures] SIGNATURES_FULFILLED',
 	SET_SIGNATURES_REJECTED: '[signatures] SET_SIGNATURES_REJECTED',
-
 	CREATE_SIGNATURE: '[signatures] CREATE_SIGNATURE',
 	CREATE_SIGNATURE_LOADING: '[signatures] CREATE_SIGNATURE_LOADING',
 	CREATE_SIGNATURE_FULFILLED: '[signatures] CREATE_SIGNATURE_FULFILLED',
 	CREATE_SIGNATURE_REJECTED: '[signatures] CREATE_SIGNATURE_REJECTED',
 }
-
-export default {
+export const signatureActions = {
 	...types,
 	getSignatures: () => ({
 		type: types.GET_SIGNATURES,
@@ -28,7 +26,6 @@ export default {
 		type: types.SET_SIGNATURES_REJECTED,
 		payload: data,
 	}),
-
 	createSignature: (data) => ({
 		type: types.CREATE_SIGNATURE,
 		payload: null,

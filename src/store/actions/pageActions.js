@@ -7,10 +7,9 @@ const types = {
 	GET_PAGE_IMAGE: '[pages] GET_DOCUMENT_PAGE_IMAGE_URL',
 	SET_PAGE_IMAGE: '[pages] SET_DOCUMENT_PAGE_IMAGE_URL',
 }
-
-export default {
+export const pageActions = {
 	...types,
-	getPages: (packageId, documentId, successCb = undefined, errorCb = undefined) => ({
+	getPages: (packageId, documentId, successCb, errorCb) => ({
 		type: types.GET_PAGES,
 		payload: null,
 		packageId,
@@ -34,7 +33,7 @@ export default {
 		type: types.GET_PAGES_REJECTED,
 		payload: response,
 	}),
-	getPageImage: (pageId, image_url, successCb = undefined, errorCb = undefined) => ({
+	getPageImage: (pageId, image_url, successCb, errorCb) => ({
 		type: types.GET_PAGE_IMAGE,
 		payload: null,
 		pageId,

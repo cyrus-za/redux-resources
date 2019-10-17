@@ -4,19 +4,16 @@ const types = {
 	GET_FIELDS_LOADING: '[fields] GET_FIELDS_LOADING',
 	GET_FIELDS_FULFILLED: '[fields] GET_FIELDS_FULFILLED',
 	GET_FIELDS_REJECTED: '[fields] GET_FIELDS_REJECTED',
-
 	CREATE_FIELD: '[fields] CREATE_FIELD',
 	UPDATE_FIELD: '[fields] UPDATE_FIELD',
 	DELETE_FIELD: '[fields] DELETE_FIELD',
-
 	SET_ITEM_LOADING: '[fields] SET_ITEM_LOADING',
 	SET_ITEM_FULFILLED: '[fields] SET_ITEM_FULFILLED',
 	SET_ITEM_REJECTED: '[fields] SET_ITEM_REJECTED',
 }
-
-export default {
+export const fieldActions = {
 	...types,
-	getFields: (packageId, query = {}, successCb = undefined, errorCb = undefined) => ({
+	getFields: (packageId, query = {}, successCb, errorCb) => ({
 		type: types.GET_FIELDS,
 		payload: null,
 		packageId,
@@ -40,8 +37,7 @@ export default {
 		type: types.GET_FIELDS_REJECTED,
 		payload: response,
 	}),
-
-	createField: (packageId, documentId, data, successCb = undefined, errorCb = undefined) => ({
+	createField: (packageId, documentId, data, successCb, errorCb) => ({
 		type: types.CREATE_FIELD,
 		payload: null,
 		packageId,
@@ -50,7 +46,7 @@ export default {
 		successCb,
 		errorCb,
 	}),
-	updateField: (packageId, documentId, fieldId, data, successCb = undefined, errorCb = undefined) => ({
+	updateField: (packageId, documentId, fieldId, data, successCb, errorCb) => ({
 		type: types.UPDATE_FIELD,
 		payload: null,
 		packageId,
@@ -60,7 +56,7 @@ export default {
 		successCb,
 		errorCb,
 	}),
-	deleteField: (packageId, documentId, fieldId, successCb = undefined, errorCb = undefined) => ({
+	deleteField: (packageId, documentId, fieldId, successCb, errorCb) => ({
 		type: types.DELETE_FIELD,
 		payload: null,
 		packageId,
@@ -69,7 +65,6 @@ export default {
 		successCb,
 		errorCb,
 	}),
-
 	setItemLoading: () => ({
 		type: types.SET_ITEM_LOADING,
 		payload: null,

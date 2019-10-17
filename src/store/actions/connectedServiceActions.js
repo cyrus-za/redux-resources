@@ -4,30 +4,25 @@ const types = {
 	SET_CONNECTED_SERVICES_LOADING: '[connectedServices] SET_CONNECTED_SERVICES_LOADING',
 	SET_CONNECTED_SERVICES_FULFILLED: '[connectedServices] SET_CONNECTED_SERVICES_FULFILLED',
 	SET_CONNECTED_SERVICES_REJECTED: '[connectedServices] SET_CONNECTED_SERVICES_REJECTED',
-
 	CREATE_CONNECTED_SERVICE: '[connectedServices] CREATE_CONNECTED_SERVICE',
 	CREATE_CONNECTED_SERVICE_INITIAL_STATE: '[connectedServices] CREATE_CONNECTED_SERVICE_INITIAL_STATE',
 	CREATE_CONNECTED_SERVICE_LOADING: '[connectedServices] CREATE_CONNECTED_SERVICE_LOADING',
 	CREATE_CONNECTED_SERVICE_FULFILLED: '[connectedServices] CREATE_CONNECTED_SERVICE_FULFILLED',
 	CREATE_CONNECTED_SERVICE_REJECTED: '[connectedServices] CREATE_CONNECTED_SERVICE_REJECTED',
-
 	UPDATE_CONNECTED_SERVICE: '[connectedServices] UPDATE_CONNECTED_SERVICE',
 	UPDATE_CONNECTED_SERVICE_INITIAL_STATE: '[connectedServices] UPDATE_CONNECTED_SERVICE_INITIAL_STATE',
 	UPDATE_CONNECTED_SERVICE_LOADING: '[connectedServices] UPDATE_CONNECTED_SERVICE_LOADING',
 	UPDATE_CONNECTED_SERVICE_FULFILLED: '[connectedServices] UPDATE_CONNECTED_SERVICE_FULFILLED',
 	UPDATE_CONNECTED_SERVICE_REJECTED: '[connectedServices] UPDATE_CONNECTED_SERVICE_REJECTED',
-
 	DELETE_CONNECTED_SERVICE: '[connectedServices] DELETE_CONNECTED_SERVICE',
 	DELETE_CONNECTED_SERVICE_INITIAL_STATE: '[connectedServices] DELETE_CONNECTED_SERVICE_INITIAL_STATE',
 	DELETE_CONNECTED_SERVICE_LOADING: '[connectedServices] DELETE_CONNECTED_SERVICE_LOADING',
 	DELETE_CONNECTED_SERVICE_FULFILLED: '[connectedServices] DELETE_CONNECTED_SERVICE_FULFILLED',
 	DELETE_CONNECTED_SERVICE_REJECTED: '[connectedServices] DELETE_CONNECTED_SERVICE_REJECTED',
-
 	SET_CONNECTED_SERVICES: '[connectedServices] SET_CONNECTED_SERVICES',
 	SET_AVAILABLE_SERVICES: '[connectedServices] SET_AVAILABLE_SERVICES',
 }
-
-export default {
+export const connectedServiceActions = {
 	...types,
 	getConnectedServices: (query = {}) => ({
 		type: types.GET_CONNECTED_SERVICES,
@@ -50,8 +45,7 @@ export default {
 		type: types.SET_CONNECTED_SERVICES_REJECTED,
 		payload: response,
 	}),
-
-	createConnectedService: (data, successCb = undefined, errorCb = undefined) => ({
+	createConnectedService: (data, successCb, errorCb) => ({
 		type: types.CREATE_CONNECTED_SERVICE,
 		payload: null,
 		data,
@@ -74,8 +68,7 @@ export default {
 		type: types.CREATE_CONNECTED_SERVICE_REJECTED,
 		payload: response,
 	}),
-
-	updateConnectedService: (id, data, successCb = undefined, errorCb = undefined) => ({
+	updateConnectedService: (id, data, successCb, errorCb) => ({
 		type: types.UPDATE_CONNECTED_SERVICE,
 		payload: null,
 		id,
@@ -99,8 +92,7 @@ export default {
 		type: types.UPDATE_CONNECTED_SERVICE_REJECTED,
 		payload: response,
 	}),
-
-	deleteConnectedService: (id, scopes = undefined, successCb = undefined, errorCb = undefined) => ({
+	deleteConnectedService: (id, scopes = undefined, successCb, errorCb) => ({
 		type: types.DELETE_CONNECTED_SERVICE,
 		payload: null,
 		id,

@@ -4,10 +4,9 @@ const types = {
 	SEARCH_FULFILLED: '[contacts] SEARCH_FULFILLED',
 	SEARCH_REJECTED: '[contacts] SEARCH_REJECTED',
 }
-
-export default {
+export const contactActions = {
 	...types,
-	searchContacts: (payload, successCb = undefined, errorCb = undefined) => ({
+	searchContacts: (payload, successCb, errorCb) => ({
 		type: types.SEARCH_CONTACTS,
 		payload,
 		successCb,

@@ -9,11 +9,11 @@ function* getConnectedServices({ query = {} }) {
 		const getConnectedServicesResponse = yield call(connectedServiceApi.getConnectedServices, query)
 		yield put(connectedServiceActions.setConnectedServicesFulfilled(getConnectedServicesResponse))
 
-        const list = getConnectedServicesResponse.data
-        const data = parseApiResponse(list)
+		const list = getConnectedServicesResponse.data
+		const data = parseApiResponse(list)
 
-        yield put(connectedServiceActions.setConnectedServices(data.connected))
-        yield put(connectedServiceActions.setAvailableServices(data.available))
+		yield put(connectedServiceActions.setConnectedServices(data.connected))
+		yield put(connectedServiceActions.setAvailableServices(data.available))
 	} catch (error) {
 		yield put(connectedServiceActions.setConnectedServicesRejected(error))
 	}

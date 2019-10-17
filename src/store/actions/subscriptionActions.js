@@ -3,24 +3,20 @@ const types = {
 	SET_SUBSCRIPTIONS_LOADING: '[subscriptions] SET_SUBSCRIPTIONS_LOADING',
 	SET_SUBSCRIPTIONS_FULFILLED: '[subscriptions] SET_SUBSCRIPTIONS_FULFILLED',
 	SET_SUBSCRIPTIONS_REJECTED: '[subscriptions] SET_SUBSCRIPTIONS_REJECTED',
-
 	CREATE_SUBSCRIPTION: '[subscriptions] CREATE_SUBSCRIPTION',
 	SET_CREATE_SUBSCRIPTION_LOADING: '[subscriptions] SET_CREATE_SUBSCRIPTION_LOADING',
 	SET_CREATE_SUBSCRIPTION_FULFILLED: '[subscriptions] SET_CREATE_SUBSCRIPTION_FULFILLED',
 	SET_CREATE_SUBSCRIPTION_REJECTED: '[subscriptions] SET_CREATE_SUBSCRIPTION_REJECTED',
-
 	UPDATE_SUBSCRIPTION: '[subscriptions] UPDATE_SUBSCRIPTION',
 	SET_UPDATE_SUBSCRIPTION_LOADING: '[subscriptions] SET_UPDATE_SUBSCRIPTION_LOADING',
 	SET_UPDATE_SUBSCRIPTION_FULFILLED: '[subscriptions] SET_UPDATE_SUBSCRIPTION_FULFILLED',
 	SET_UPDATE_SUBSCRIPTION_REJECTED: '[subscriptions] SET_UPDATE_SUBSCRIPTION_REJECTED',
-
 	DELETE_SUBSCRIPTION: '[subscriptions] DELETE_SUBSCRIPTION',
 	SET_DELETE_SUBSCRIPTION_LOADING: '[subscriptions] SET_DELETE_SUBSCRIPTION_LOADING',
 	SET_DELETE_SUBSCRIPTION_FULFILLED: '[subscriptions] SET_DELETE_SUBSCRIPTION_FULFILLED',
 	SET_DELETE_SUBSCRIPTION_REJECTED: '[subscriptions] SET_DELETE_SUBSCRIPTION_REJECTED',
 }
-
-export default {
+export const subscriptionActions = {
 	...types,
 	getSubscriptions: (query = {}) => ({
 		type: types.GET_SUBSCRIPTIONS,
@@ -39,8 +35,7 @@ export default {
 		type: types.SET_SUBSCRIPTIONS_REJECTED,
 		payload: response,
 	}),
-
-	createSubscription: (account, plan, coupon = null, successCb = undefined, errorCb = undefined) => ({
+	createSubscription: (account, plan, coupon = null, successCb, errorCb) => ({
 		type: types.CREATE_SUBSCRIPTION,
 		payload: null,
 		account,
@@ -61,8 +56,7 @@ export default {
 		type: types.SET_CREATE_SUBSCRIPTION_REJECTED,
 		payload: response,
 	}),
-
-	updateSubscription: (subscription, plan, coupon = null, successCb = undefined, errorCb = undefined) => ({
+	updateSubscription: (subscription, plan, coupon = null, successCb, errorCb) => ({
 		type: types.UPDATE_SUBSCRIPTION,
 		payload: null,
 		subscription,
@@ -83,8 +77,7 @@ export default {
 		type: types.SET_UPDATE_SUBSCRIPTION_REJECTED,
 		payload: response,
 	}),
-
-	deleteSubscription: (subscription, successCb = undefined, errorCb = undefined) => ({
+	deleteSubscription: (subscription, successCb, errorCb) => ({
 		type: types.DELETE_SUBSCRIPTION,
 		payload: null,
 		subscription,
