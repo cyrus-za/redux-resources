@@ -24,6 +24,7 @@
 	"dependencies": {
 		"immutable": "^4.0.0-rc.12",
 		"js-file-download": "^0.4.5",
+		"lodash": "^4.17.15",
 		"reselect": "^4.0.0"
 	},
 	"devDependencies": {
