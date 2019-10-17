@@ -23,9 +23,3 @@ export const loginLoading = createSelector(
 		)
 	}
 )
-
-export const accountIsDefault = (account) =>
-	createSelector(
-		[defaultAccount],
-		(defaultAccount) => account.id === defaultAccount.data.id
-	)
