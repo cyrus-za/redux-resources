@@ -1,4 +1,4 @@
-import config from '../config'
+import config from '../config/index'
 
 export const parseApiResponse = (list) => {
 	const googleAuth = getParsedObject(list, 'google', config.google.scopes.authentication)
@@ -7,8 +7,8 @@ export const parseApiResponse = (list) => {
 	const activeCampaign = getParsedObject(list, 'active_campaign')
 	const dropBox = getParsedObject(list, 'dropbox')
 	const box = getParsedObject(list, 'box')
-	let connected = []
-	let available = []
+	let connected = [] as any[]
+	let available = [] as any[]
 
 	googleAuth.connectedService ? connected.push(googleAuth) : available.push(googleAuth)
 	googleContacts.connectedService ? connected.push(googleContacts) : available.push(googleContacts)
@@ -23,7 +23,7 @@ export const parseApiResponse = (list) => {
 	}
 }
 
-export const getParsedObject = (list, provider, scopes = null) => {
+export const getParsedObject = (list, provider, scopes?: string) => {
 	const socialAccount = list.data.find((item) => item.provider === provider)
 	let data = {
 		provider,

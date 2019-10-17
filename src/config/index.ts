@@ -1,4 +1,4 @@
-export default {
+const config = {
 	apiBase: process.versions.node ? '' : process.env.REACT_APP_API_BASE_URL,
 	google: {
 		scopes: {
@@ -9,3 +9,12 @@ export default {
 		},
 	},
 }
+
+type Config = {
+	apiBase: string
+	google: {
+		scopes: { [key: string]: string }
+	}
+}
+
+export default config as Config
