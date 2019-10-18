@@ -3,33 +3,33 @@ import config from '../config'
 import { keysToSnakeCase } from '../utilities/helpers'
 
 export default {
-	getPackages: params => {
+	getPackages: (params) => {
 		return axios({
 			url: `${config.apiBase}/packages`,
 			method: 'GET',
 			params,
 		})
 	},
-	getPackageLexicon: params => {
+	getPackageLexicon: (params) => {
 		return axios({
 			url: `${config.apiBase}/packages/lexicon`,
 			method: 'GET',
 			params,
 		})
 	},
-	showPackage: id => {
+	showPackage: (id) => {
 		return axios({
 			url: `${config.apiBase}/packages/${id}`,
 			method: 'GET',
 		})
 	},
-	deletePackage: id => {
+	deletePackage: (id) => {
 		return axios({
 			url: `${config.apiBase}/packages/${id}`,
 			method: 'DELETE',
 		})
 	},
-	createPackage: data => {
+	createPackage: (data) => {
 		return axios({
 			url: `${config.apiBase}/packages`,
 			method: 'POST',
@@ -116,7 +116,7 @@ export default {
 			responseType: 'blob',
 		})
 	},
-	getDocumentPageImageUrl: url => {
+	getDocumentPageImageUrl: (url) => {
 		return axios({
 			url,
 			method: 'GET',
@@ -135,7 +135,7 @@ export default {
 			method: 'DELETE',
 		})
 	},
-	publish: id => {
+	publish: (id) => {
 		return axios({
 			url: `${config.apiBase}/packages/${id}/publish`,
 			method: 'PUT',

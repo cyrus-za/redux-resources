@@ -2,7 +2,7 @@ import axios from 'axios'
 import config from '../config'
 
 export default {
-	createAccessToken: user => {
+	createAccessToken: (user) => {
 		return axios({
 			url: `${config.apiBase}/oauth/token`,
 			method: 'POST',
@@ -25,7 +25,7 @@ export default {
 			},
 		})
 	},
-	createClient: data => {
+	createClient: (data) => {
 		return axios({
 			url: `${config.apiBase}/oauth/clients`,
 			method: 'POST',

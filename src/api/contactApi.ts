@@ -2,7 +2,7 @@ import axios from 'axios'
 import config from '../config'
 
 export default {
-	searchContact: data => {
+	searchContact: (data) => {
 		return axios({
 			url: `${config.apiBase}/contacts`,
 			method: 'GET',

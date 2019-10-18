@@ -9,7 +9,7 @@ export default {
 			params,
 		})
 	},
-	createSubscription: data => {
+	createSubscription: (data) => {
 		return axios({
 			url: `${config.apiBase}/subscriptions`,
 			method: 'POST',
@@ -23,7 +23,7 @@ export default {
 			data,
 		})
 	},
-	deleteSubscription: id => {
+	deleteSubscription: (id) => {
 		return axios({
 			url: `${config.apiBase}/subscriptions/${id}`,
 			method: 'DELETE',

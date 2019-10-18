@@ -9,7 +9,7 @@ export default {
 			params,
 		})
 	},
-	createConnectedService: data => {
+	createConnectedService: (data) => {
 		return axios({
 			url: `${config.apiBase}/connected_services`,
 			method: 'POST',
@@ -32,7 +32,8 @@ export default {
 	},
 	deleteConnectedService: (id, scopes = undefined) => {
 		return axios({
-			url: scopes === undefined
+			url:
+				scopes === undefined
 					? `${config.apiBase}/connected_services/${id}`
 					: `${config.apiBase}/connected_services/${id}/${scopes}`,
 			method: 'DELETE',

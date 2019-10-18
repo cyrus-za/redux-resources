@@ -2,7 +2,7 @@ import axios from 'axios'
 import config from '../config'
 
 export default {
-	createUser: data => {
+	createUser: (data) => {
 		return axios({
 			url: `${config.apiBase}/users`,
 			method: 'POST',
@@ -10,12 +10,12 @@ export default {
 		})
 	},
 	me: () => {
-	return axios({
-		url: `${config.apiBase}/users/me`,
-		method: 'GET',
-	})
-},
-	getUserMeta: userId => {
+		return axios({
+			url: `${config.apiBase}/users/me`,
+			method: 'GET',
+		})
+	},
+	getUserMeta: (userId) => {
 		return axios({
 			url: `${config.apiBase}/users/${userId}/meta`,
 			method: 'GET',
@@ -41,7 +41,7 @@ export default {
 			method: 'GET',
 		})
 	},
-	getNotificationPreferences: id => {
+	getNotificationPreferences: (id) => {
 		return axios({
 			url: `${config.apiBase}/users/${id}/notification_preferences`,
 			method: 'GET',
@@ -61,7 +61,7 @@ export default {
 			data,
 		})
 	},
-	confirmEmail: token => {
+	confirmEmail: (token) => {
 		return axios({
 			url: `${config.apiBase}/users/email_confirmation/${token}`,
 			method: 'PUT',

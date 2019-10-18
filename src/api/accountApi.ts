@@ -6,7 +6,7 @@ export default {
 		return axios({
 			url: `${config.apiBase}/accounts`,
 			method: 'GET',
-			params
+			params,
 		})
 	},
 	getDefaultAccount: () => {
@@ -16,26 +16,26 @@ export default {
 			method: 'GET',
 		})
 	},
-	setDefaultAccount: id => {
+	setDefaultAccount: (id) => {
 		return axios({
 			url: `${config.apiBase}/accounts/${id}/default`,
 			method: 'PUT',
 		})
 	},
-	getUsers: id => {
+	getUsers: (id) => {
 		return axios({
 			url: `${config.apiBase}/accounts/${id}/users`,
 			method: 'GET',
 		})
 	},
-	create: data => {
+	create: (data) => {
 		return axios({
 			url: `${config.apiBase}/accounts`,
 			method: 'POST',
 			data,
 		})
 	},
-	show: id => {
+	show: (id) => {
 		return axios({
 			url: `${config.apiBase}/accounts/${id}`,
 			method: 'GET',
@@ -68,7 +68,7 @@ export default {
 			data,
 		})
 	},
-	getInvoices: id => {
+	getInvoices: (id) => {
 		return axios({
 			url: `${config.apiBase}/accounts/${id}/invoices`,
 			method: 'GET',

@@ -9,24 +9,23 @@ export default {
 			params,
 		})
 	},
-	deleteAccountInvite: id => {
+	deleteAccountInvite: (id) => {
 		return axios({
 			url: `${config.apiBase}/account_invites/${id}`,
 			method: 'DELETE',
 		})
 	},
-	create: data => {
+	create: (data) => {
 		return axios({
 			url: `${config.apiBase}/account_invites`,
 			method: 'POST',
 			data,
 		})
 	},
-	accept: id => {
+	accept: (id) => {
 		return axios({
 			url: `${config.apiBase}/account_invites/${id}/accept`,
 			method: 'PUT',
 		})
 	},
 }
-

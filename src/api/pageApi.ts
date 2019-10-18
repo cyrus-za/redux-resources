@@ -8,7 +8,7 @@ export default {
 			method: 'GET',
 		})
 	},
-	getPageImage: url => {
+	getPageImage: (url) => {
 		return axios({
 			url,
 			method: 'GET',

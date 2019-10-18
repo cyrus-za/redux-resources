@@ -6,10 +6,10 @@ export default {
 		return axios({
 			url: `${config.apiBase}/signatures`,
 			method: 'GET',
-			params
+			params,
 		})
 	},
-	createSignature: data => {
+	createSignature: (data) => {
 		return axios({
 			url: `${config.apiBase}/signatures`,
 			method: 'POST',

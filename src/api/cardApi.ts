@@ -9,13 +9,13 @@ export default {
 			params,
 		})
 	},
-	deleteCard: id => {
+	deleteCard: (id) => {
 		return axios({
 			url: `${config.apiBase}/cards/${id}`,
 			method: 'DELETE',
 		})
 	},
-	createCard: data => {
+	createCard: (data) => {
 		return axios({
 			url: `${config.apiBase}/cards`,
 			method: 'POST',
@@ -29,11 +29,10 @@ export default {
 			data,
 		})
 	},
-	setDefaultCard: id => {
+	setDefaultCard: (id) => {
 		return axios({
 			url: `${config.apiBase}/cards/${id}/default`,
 			method: 'PUT',
 		})
 	},
 }
-

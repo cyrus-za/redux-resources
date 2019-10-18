@@ -9,13 +9,13 @@ export default {
 			params,
 		})
 	},
-	showFolder: id => {
+	showFolder: (id) => {
 		return axios({
 			url: `${config.apiBase}/folders/${id}`,
 			method: 'GET',
 		})
 	},
-	createFolder: data => {
+	createFolder: (data) => {
 		return axios({
 			url: `${config.apiBase}/folders`,
 			method: 'POST',
