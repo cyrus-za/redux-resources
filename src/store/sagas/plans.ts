@@ -1,6 +1,6 @@
 import { planActions } from '../actions'
 import { put, takeEvery, call } from 'redux-saga/effects'
-import { planApi } from '../../api/planApi'
+import { planApi } from '../../api'
 import { AnyAction } from 'redux'
 
 function* getPlans({ query }: AnyAction) {

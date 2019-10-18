@@ -27,7 +27,7 @@ const types = {
 	SET_AVAILABLE_SERVICES: '[connectedServices] SET_AVAILABLE_SERVICES',
 }
 
-export const connectedServiceActions = {
+export default {
 	...types,
 	getConnectedServices: (query = {}) => ({
 		type: types.GET_CONNECTED_SERVICES,

@@ -1,31 +1,26 @@
 import axios from 'axios'
 import config from '../config'
 
-export const notificationApi = {
-	getNotifications,
-	deleteNotification,
-	update,
-}
-
-function getNotifications(query = {}) {
-	return axios({
-		url: `${config.apiBase}/notifications`,
-		method: 'GET',
-		params: query,
-	})
-}
-
-function update(id, notification) {
-	return axios({
-		url: `${config.apiBase}/notifications/${id}`,
-		method: 'PUT',
-		data: notification,
-	})
-}
-
-function deleteNotification(id) {
-	return axios({
-		url: `${config.apiBase}/notifications/${id}`,
-		method: 'DELETE',
-	})
+export default {
+	getNotifications: (params = {}) => {
+		return axios({
+			url: `${config.apiBase}/notifications`,
+			method: 'GET',
+			params,
+		})
+	},
+	deleteNotification: (id, data) => {
+		return axios({
+			url: `${config.apiBase}/notifications/${id}`,
+			method: 'PUT',
+			data,
+		})
+	},
+	update: (id, data) => {
+		return axios({
+			url: `${config.apiBase}/notifications/${id}`,
+			method: 'PUT',
+			data,
+		})
+	},
 }

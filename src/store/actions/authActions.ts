@@ -42,7 +42,7 @@ const types = {
 	UPDATE_AUTH_PHOTO_REJECTED: '[auth] UPDATE_AUTH_PHOTO_REJECTED',
 }
 
-export const authActions = {
+export default {
 	...types,
 	authUserInitialState: () => ({
 		type: types.AUTH_USER_INITIAL_STATE,

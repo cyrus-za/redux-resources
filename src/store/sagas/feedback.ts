@@ -1,6 +1,6 @@
 import { notificationActions, feedbackActions } from '../actions'
 import { put, takeEvery, call } from 'redux-saga/effects'
-import { feedbackApi } from '../../api/feedbackApi'
+import { feedbackApi } from '../../api'
 
 interface Props {
 	payload: any

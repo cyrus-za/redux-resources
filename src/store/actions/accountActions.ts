@@ -66,7 +66,7 @@ const types = {
 	GET_INVOICES_REJECTED: '[accounts] GET_INVOICES_REJECTED',
 }
 
-export const accountActions = {
+export default {
 	...types,
 	showAccount: (id) => ({
 		type: types.SHOW_ACCOUNT,

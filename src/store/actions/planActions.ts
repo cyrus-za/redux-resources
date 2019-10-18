@@ -6,7 +6,7 @@ const types = {
 	SET_PLANS_REJECTED: '[plans] SET_PLANS_REJECTED',
 }
 
-export const planActions = {
+export default {
 	...types,
 	getPlans: (query = {}) => ({
 		type: types.GET_PLANS,

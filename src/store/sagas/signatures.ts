@@ -1,6 +1,6 @@
 import { signatureActions } from '../actions'
 import { put, takeEvery, call } from 'redux-saga/effects'
-import { signatureApi } from '../../api/signatureApi'
+import { signatureApi } from '../../api'
 import { AnyAction } from 'redux'
 
 function* getSignatures() {

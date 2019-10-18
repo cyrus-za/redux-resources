@@ -1,6 +1,6 @@
 import { connectedServiceActions, notificationActions } from '../actions'
 import { put, takeEvery, call } from 'redux-saga/effects'
-import { connectedServiceApi } from '../../api/connectedServiceApi'
+import { connectedServiceApi } from '../../api'
 import { AnyAction } from 'redux'
 import { parseApiResponse } from '../../utilities/socialAccountUtility'
 

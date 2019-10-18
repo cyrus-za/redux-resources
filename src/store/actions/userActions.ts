@@ -30,7 +30,7 @@ const types = {
 	UPDATE_NOTIFICATION_PREFERENCES_REJECTED: '[users] UPDATE_NOTIFICATION_PREFERENCES_REJECTED',
 }
 
-export const userActions = {
+export default {
 	...types,
 	updatePassword: (id, payload, successCb, errorCb) => ({
 		type: types.UPDATE_PASSWORD,

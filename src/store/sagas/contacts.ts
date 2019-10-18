@@ -1,6 +1,6 @@
 import { contactActions } from '../actions'
 import { put, takeEvery, call } from 'redux-saga/effects'
-import { contactApi } from '../../api/contactApi'
+import { contactApi } from '../../api'
 
 interface Props {
 	payload

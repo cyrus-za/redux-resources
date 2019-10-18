@@ -10,7 +10,7 @@ const types = {
 	CREATE_SIGNATURE_REJECTED: '[signatures] CREATE_SIGNATURE_REJECTED',
 }
 
-export const signatureActions = {
+export default {
 	...types,
 	getSignatures: () => ({
 		type: types.GET_SIGNATURES,
