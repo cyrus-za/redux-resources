@@ -71,7 +71,7 @@ export default function(state = initialState, action) {
 			})
 		case notificationActions.UPDATE_NOTIFICATION_FULFILLED:
 			const updateNotificationResponse = action.payload.data
-			let updatedList = state.toJS().list
+			const updatedList = state.toJS().list
 			let unreadNotifications = state.toJS().totalUnreadNotifications
 			const updatedItemIndex = updatedList.data.findIndex((item) => item.id === updateNotificationResponse.id)
 			if (updatedItemIndex !== -1) {

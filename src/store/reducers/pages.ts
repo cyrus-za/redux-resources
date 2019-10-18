@@ -24,7 +24,7 @@ export default (state = initialState, action) => {
 
 		case pageActions.SET_PAGE_IMAGE:
 			const { pageId, image } = action
-			let pages = state.toJS().list
+			const pages = state.toJS().list
 			const pageIndex = pages.data.findIndex((page) => page.id === pageId)
 			pages.data[pageIndex].images.push(image.data)
 			return state.merge({

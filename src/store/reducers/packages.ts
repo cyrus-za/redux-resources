@@ -299,7 +299,7 @@ export default (state = initialState, action) => {
 			})
 
 		case packageActions.SET_PACKAGE_IMAGE_URL:
-			let packages = state.toJS().list
+			const packages = state.toJS().list
 			const packageIndex = packages.data.findIndex((item) => item.id === action.id)
 			packages.data[packageIndex].image = action.image_url.data
 			return state.merge({
@@ -307,14 +307,14 @@ export default (state = initialState, action) => {
 			})
 
 		case packageActions.SET_DOCUMENT_IMAGE_URL:
-			let docs = state.toJS().documents
+			const docs = state.toJS().documents
 			const docIndex = docs.data.findIndex((document) => document.id === action.documentId)
 			docs.data[docIndex].image = action.imageUrl.data
 			return state.merge({
 				documents: docs,
 			})
 		case packageActions.SET_DOCUMENT_PAGE_IMAGE_URL:
-			let doccies = state.toJS().documents
+			const doccies = state.toJS().documents
 			const doccyIndex = doccies.data.findIndex((document) => document.id === action.documentId)
 			const paggyIndex = doccies.data[doccyIndex].pages.findIndex((page) => page.id === action.pageId)
 			let images = doccies.data[doccyIndex].pages[paggyIndex].images

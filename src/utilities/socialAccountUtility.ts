@@ -7,8 +7,8 @@ export const parseApiResponse = (list) => {
 	const activeCampaign = getParsedObject(list, 'active_campaign')
 	const dropBox = getParsedObject(list, 'dropbox')
 	const box = getParsedObject(list, 'box')
-	let connected = [] as any[]
-	let available = [] as any[]
+	const connected = [] as any[]
+	const available = [] as any[]
 
 	googleAuth.connectedService ? connected.push(googleAuth) : available.push(googleAuth)
 	googleContacts.connectedService ? connected.push(googleContacts) : available.push(googleContacts)
@@ -25,7 +25,7 @@ export const parseApiResponse = (list) => {
 
 export const getParsedObject = (list, provider, scopes?: string) => {
 	const socialAccount = list.data.find((item) => item.provider === provider)
-	let data = {
+	const data = {
 		provider,
 		scopes,
 		connectedService: undefined,

@@ -194,7 +194,7 @@ export default (state = initialState, action) => {
 			})
 		case accountActions.UPDATE_ACCOUNT_FULFILLED:
 			const updateAccountResponse = action.payload.data
-			let returnVal = {
+			const returnVal = {
 				updateAccount: stateUtility.getObserverFulfilled(),
 				item: stateUtility.getItemFulfilled(updateAccountResponse),
 			} as any
