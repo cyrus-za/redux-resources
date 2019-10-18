@@ -13,15 +13,31 @@
 	"author": "@approveme",
 	"scripts": {
 		"build": "tsc",
-		"lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
+		"lint": "eslint '*/**/*.{js,ts}' --quiet --fix",
 		"postversion": "git push && git push --tags",
 		"prepare": "yarn build",
 		"prepublishOnly": "yarn run prettier && yarn run lint",
-		"prettier": "prettier  --write './**/*.{ts,tsx,js,jsx,css}'",
+		"prettier": "prettier  --write './**/*.{ts,js,jsx,css}'",
 		"preversion": "yarn run prettier && yarn run lint",
 		"version": "yarn run prettier && yarn run lint && git add -A src"
 	},
 	"private": false,
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"{src,test}/**/*.ts": [
+			"pretty-quick --staged",
+			"eslint --fix",
+			"git add"
+		],
+		"{src,test}/**/*.{graphql,json,html,scss}": [
+			"pretty-quick --staged",
+			"git add"
+		]
+	},
 	"dependencies": {
 		"immutable": "^4.0.0-rc.12",
 		"js-file-download": "^0.4.5",
@@ -39,7 +55,10 @@
 		"eslint": "^6.5.1",
 		"eslint-config-prettier": "^6.4.0",
 		"eslint-plugin-prettier": "^3.1.1",
+		"husky": "^3.0.9",
+		"lint-staged": "^9.4.2",
 		"prettier": "^1.18.2",
+		"pretty-quick": "^2.0.0",
 		"typescript": "^3.6.4",
 		"yarn": "^1.19.1"
 	},
