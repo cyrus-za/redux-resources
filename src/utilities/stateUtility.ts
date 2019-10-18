@@ -1,13 +1,3 @@
-const getPaginationFromLocalStorage = (name) => {
-	const value = window.localStorage.getItem(name)
-	if (value === null) {
-		return getPaginationInitialState()
-	} else {
-		const parsed = JSON.parse(value)
-		return getPaginationFulfilled(parsed)
-	}
-}
-
 const getPaginationInitialState = () => {
 	return {
 		ui: {
@@ -52,6 +42,16 @@ const getPaginationFulfilled = (data) => {
 		},
 		data: data.data,
 		error: null,
+	}
+}
+
+const getPaginationFromLocalStorage = (name) => {
+	const value = window.localStorage.getItem(name)
+	if (value === null) {
+		return getPaginationInitialState()
+	} else {
+		const parsed = JSON.parse(value)
+		return getPaginationFulfilled(parsed)
 	}
 }
 
@@ -107,24 +107,6 @@ const getPaginationRejected = (error) => {
 	}
 }
 
-const getStringFromLocalStorage = (name) => {
-	const value = window.localStorage.getItem(name)
-	if (value === null) {
-		return getItemInitialState()
-	} else {
-		return getItemFulfilled(value)
-	}
-}
-
-const getItemFromLocalStorage = (name) => {
-	const value = window.localStorage.getItem(name)
-	if (value === null) {
-		return getItemInitialState()
-	} else {
-		const parsed = JSON.parse(value)
-		return getItemFulfilled(parsed)
-	}
-}
 const getItemInitialState = (data = null) => {
 	return {
 		ui: {
@@ -166,6 +148,25 @@ const getItemRejected = (error, data = null) => {
 		},
 		data: data,
 		error: error,
+	}
+}
+
+const getStringFromLocalStorage = (name) => {
+	const value = window.localStorage.getItem(name)
+	if (value === null) {
+		return getItemInitialState()
+	} else {
+		return getItemFulfilled(value)
+	}
+}
+
+const getItemFromLocalStorage = (name) => {
+	const value = window.localStorage.getItem(name)
+	if (value === null) {
+		return getItemInitialState()
+	} else {
+		const parsed = JSON.parse(value)
+		return getItemFulfilled(parsed)
 	}
 }
 

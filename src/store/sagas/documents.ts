@@ -14,6 +14,20 @@ export function* getDocuments({ query }: AnyAction) {
 	}
 }
 
+export function* previewDocument({ document }: any) {
+	try {
+		yield put(documentActions.downloadDocumentLoading())
+		const downloadResponse = yield call(documentApi.downloadDocument, document.id, document.provider)
+		const fileURL = URL.createObjectURL(downloadResponse.data)
+		window.open(fileURL)
+		window.focus()
+
+		yield put(documentActions.downloadDocumentFulfilled())
+	} catch (error) {
+		yield put(documentActions.downloadDocumentRejected(error))
+	}
+}
+
 export function* downloadDocument({ document, preview }: AnyAction) {
 	try {
 		if (preview === true) {
@@ -31,20 +45,6 @@ export function* downloadDocument({ document, preview }: AnyAction) {
 			const win = window.open(document.download_url, '_blank')
 			win.focus()
 		}
-
-		yield put(documentActions.downloadDocumentFulfilled())
-	} catch (error) {
-		yield put(documentActions.downloadDocumentRejected(error))
-	}
-}
-
-export function* previewDocument({ document }: any) {
-	try {
-		yield put(documentActions.downloadDocumentLoading())
-		const downloadResponse = yield call(documentApi.downloadDocument, document.id, document.provider)
-		const fileURL = URL.createObjectURL(downloadResponse.data)
-		window.open(fileURL)
-		window.focus()
 
 		yield put(documentActions.downloadDocumentFulfilled())
 	} catch (error) {

@@ -6,7 +6,7 @@
 		"sourceType": "module"
 	},
 	"rules": {
-		"@typescript-eslint/camelcase": 0,
-		"@typescript-eslint/no-use-before-define": 1
+		"@typescript-eslint/camelcase": 0
+		// "@typescript-eslint/no-use-before-define":
 	}
 }

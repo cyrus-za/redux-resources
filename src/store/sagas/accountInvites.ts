@@ -15,6 +15,23 @@ export function* getAccountInvites({ query }: any) {
 	}
 }
 
+export function* myAccountInvites() {
+	const state = yield select()
+	const user = authUser(state)
+
+	try {
+		yield put(accountInviteActions.getMyAccountInvitesInitialState())
+		yield put(accountInviteActions.getMyAccountInvitesLoading())
+		const response = yield call(accountInviteApi.getAccountInvites, {
+			emails: user.data.email,
+			status: 'pending',
+		})
+		yield put(accountInviteActions.getMyAccountInvitesFulfilled(response))
+	} catch (error) {
+		yield put(accountInviteActions.getMyAccountInvitesRejected(error))
+	}
+}
+
 export function* deleteAccountInvite({ invite, successCb, errorCb }: AnyAction) {
 	try {
 		yield put(accountInviteActions.deleteAccountInviteInitialState())
@@ -70,23 +87,6 @@ export function* acceptAccountInvite({ invite }: AnyAction) {
 		yield put(notificationActions.displaySnackbarMessage('Account Invitation Accepted!', 2000))
 	} catch (error) {
 		yield put(accountInviteActions.acceptAccountInviteRejected(error))
-	}
-}
-
-export function* myAccountInvites() {
-	const state = yield select()
-	const user = authUser(state)
-
-	try {
-		yield put(accountInviteActions.getMyAccountInvitesInitialState())
-		yield put(accountInviteActions.getMyAccountInvitesLoading())
-		const response = yield call(accountInviteApi.getAccountInvites, {
-			emails: user.data.email,
-			status: 'pending',
-		})
-		yield put(accountInviteActions.getMyAccountInvitesFulfilled(response))
-	} catch (error) {
-		yield put(accountInviteActions.getMyAccountInvitesRejected(error))
 	}
 }
 
