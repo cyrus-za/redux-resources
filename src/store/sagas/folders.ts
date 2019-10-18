@@ -26,7 +26,6 @@ function* createFolder({ data, successCb, errorCb }: AnyAction) {
 		const query = {
 			account_ids: createFolderResponse.data.account_id,
 		}
-		console.log(query)
 		yield call<any>(getFolders, { query })
 	} catch (error) {
 		yield put(folderActions.createFolderRejected(error))

@@ -10,7 +10,6 @@ export default {
 		})
 	},
 	getDefaultAccount: () => {
-		console.log('here')
 		return axios({
 			url: `${config.apiBase}/accounts/default`,
 			method: 'GET',

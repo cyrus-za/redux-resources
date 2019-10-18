@@ -97,7 +97,6 @@ export default (state = initialState, action) => {
 			})
 		case accountActions.LOAD_DEFAULT_ACCOUNT_FULFILLED:
 			const getDefaultAccountResponse = action.payload.data
-			console.log('LOAD_DEFAULT_ACCOUNT_FULFILLED')
 
 			window.localStorage.setItem('defaultAccount', JSON.stringify(getDefaultAccountResponse))
 			return state.merge({
@@ -200,8 +199,6 @@ export default (state = initialState, action) => {
 				item: stateUtility.getItemFulfilled(updateAccountResponse),
 			} as any
 			if (updateAccountResponse.id === state.toJS().defaultAccount.data.id) {
-				console.log('UPDATE_ACCOUNT_FULFILLED')
-
 				window.localStorage.setItem('defaultAccount', JSON.stringify(updateAccountResponse))
 				returnVal.defaultAccount = stateUtility.getItemFulfilled(updateAccountResponse)
 			}

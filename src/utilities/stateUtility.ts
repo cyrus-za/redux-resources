@@ -117,9 +117,7 @@ const getStringFromLocalStorage = (name) => {
 }
 
 const getItemFromLocalStorage = (name) => {
-	console.log('HERE', name)
 	const value = window.localStorage.getItem(name)
-	console.log(value)
 	if (value === null) {
 		return getItemInitialState()
 	} else {

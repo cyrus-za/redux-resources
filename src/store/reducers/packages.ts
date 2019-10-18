@@ -317,8 +317,6 @@ export default (state = initialState, action) => {
 			let doccies = state.toJS().documents
 			const doccyIndex = doccies.data.findIndex((document) => document.id === action.documentId)
 			const paggyIndex = doccies.data[doccyIndex].pages.findIndex((page) => page.id === action.pageId)
-			console.log(doccyIndex)
-			console.log(paggyIndex)
 			let images = doccies.data[doccyIndex].pages[paggyIndex].images
 			if (images === undefined) {
 				images = []
